@@ -1,0 +1,32 @@
+.gbyte-standalone-images {
+  margin-bottom: to-rem(180px);
+}
+.gbyte-standalone-images .gbyte-container {
+  width: 100%;
+  margin: auto;
+  max-width: 100%;
+  padding: 0;
+}
+.gbyte-standalone-images .gbyte-image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.gbyte-standalone-images .gbyte-image-wrapper img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+@media (max-width: 992px) {
+  .gbyte-standalone-images {
+    margin-bottom: to-rem(70px);
+    padding: 0 0;
+  }
+}
+@media (max-width: 768px) {
+  .gbyte-standalone-images {
+    padding: 0 to-rem(15px);
+  }
+}
+
+/*# sourceMappingURL=images.css.map */

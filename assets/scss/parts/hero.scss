@@ -1,0 +1,203 @@
+@use "base" as *;
+/* ==========================================================================
+   4. Section Hero
+   ========================================================================== */
+
+.gbyte-hero {
+    height: 100vh;
+    width: 100%;
+    background-image: none;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    .gbyte-hero__background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+
+        .gbyte-hero__background-image,
+        .gbyte-hero__background-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+        }
+
+        .gbyte-hero__background-image {
+            background-size: cover;
+            background-position: center center;
+        }
+    }
+
+    .gbyte-hero__title {
+        width: 80%;
+    }
+}
+
+.gbyte-hero__content {
+    text-align: left;
+    position: relative;
+    z-index: 2;
+
+    .gbyte-container {
+        padding: to-rem(40px) to-rem(30px);
+        margin: auto;
+
+        @media (max-width: 992px) {
+            max-width: 1220px;
+            padding: to-rem(70px) to-rem(15px);
+        }
+    }
+}
+
+.gbyte-hero__title {
+    color: $white-color;
+    font-size: to-rem(72px);
+    line-height: to-rem(76px);
+    margin-bottom: to-rem(40px);
+
+    @media (max-width: 992px) {
+        font-size: to-rem(32px);
+        line-height: to-rem(38px);
+        margin-bottom: 25px;
+    }
+}
+
+.gbyte-hero__subtitle {
+    color: $white-color;
+    font-size: to-rem(32px);
+    line-height: to-rem(38px);
+
+    @media (max-width: 992px) {
+        font-size: to-rem(18px);
+        line-height: to-rem(26px);
+    }
+}
+
+.gbyte-btn {
+    .arrow {
+        .b {
+            fill: #ffffff;
+        }
+    }
+}
+
+/* ===================
+        Layout image banner
+=================== */
+
+.gbyte-hero.gbyte-hero--image-banner {
+    background-image: none;
+    height: auto;
+
+    .gbyte-hero__content {
+        .gbyte-container {
+            padding: to-rem(45px) to-rem(30px) 0 to-rem(30px);
+
+            img {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            @media (max-width: 992px) {
+                padding: 20px 30px 66px 30px;
+            }
+
+            @media (max-width: 768px) {
+                padding: 20px 15px 66px 15px;
+            }
+        }
+
+        .gbyte-hero__title {
+            color: $black-color;
+        }
+    }
+}
+
+/* ===============================
+        Layout with bottom bar
+================================== */
+
+.gbyte-hero--with-bottom-bar {
+    height: calc(100vh - var(--header-height, 0px));
+
+    .gbyte-hero__content {
+        width: 100%;
+
+        > .gbyte-container {
+            width: 100%;
+            max-width: to-rem(850px);
+            text-align: left;
+            margin: 0 auto 0 0;
+
+            .gbyte-hero__subtitle {
+                font-size: to-rem(18px);
+                line-height: to-rem(26px);
+                width: 100%;
+                max-width: to-rem(560px);
+            }
+
+            @media (max-width: 992px) {
+                padding: to-rem(40px);
+            }
+
+            @media (max-width: 768px) {
+                padding: to-rem(15px);
+            }
+        }
+
+        .gbyte-container {
+            .gbyte-hero__bottom-bar-wrapper {
+                .gbyte-btn--hero {
+                    &:hover {
+                        svg .b {
+                            fill: $black-color !important;
+                        }
+                    }
+                    &:active {
+                        border-color: #fff;
+                        color: #fff;
+                        svg .b {
+                            fill: $white-color !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.gbyte-hero__bottom-bar {
+    width: 100%;
+    z-index: 3;
+
+    &-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &-icon {
+        width: 100%;
+        max-width: to-rem(60px);
+
+        @media (max-width: 768px) {
+            display: none;
+        }
+    }
+
+    .gbyte-container {
+        @media (max-width: 992px) {
+            padding: 0 to-rem(40px) to-rem(20px) to-rem(40px) !important;
+        }
+
+        @media (max-width: 768px) {
+            padding: 0 to-rem(15px) to-rem(20px) to-rem(15px) !important;
+        }
+    }
+}

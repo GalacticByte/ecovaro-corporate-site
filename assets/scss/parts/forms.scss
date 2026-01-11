@@ -1,0 +1,250 @@
+@use "base" as *;
+:root {
+    --error-span-height: 0px;
+}
+/* ==========================================================================
+  Section: Contact Form
+   ========================================================================== */
+
+.gbyte-forms {
+    padding-left: (15px);
+    padding-right: (15px);
+
+    .gbyte-forms__col {
+        width: 100%;
+        max-width: to-rem(640px);
+    }
+    .gbyte-forms__title {
+        font-size: to-rem(32px);
+        line-height: to-rem(36px);
+        margin-bottom: to-rem(50px);
+        color: $black-color;
+        width: 80%;
+    }
+}
+
+.gbyte-form {
+    .gbyte-form-group {
+        position: relative;
+        margin-bottom: to-rem(20px);
+    }
+
+    .gbyte-form-label {
+        position: absolute;
+        top: 50%;
+        left: to-rem(15px);
+        transform: translate(0, -50%);
+        color: $second_text_color;
+        font-size: to-rem(16px);
+        line-height: to-rem(16px);
+        pointer-events: none;
+        transition: all 0.2s ease-out;
+        background-color: $white-color;
+        padding: 0;
+    }
+
+    .gbyte-form-control {
+        width: 100%;
+        padding: to-rem(18px) to-rem(15px);
+        border: 1px solid #c5c5c5;
+        border-radius: to-rem(4px);
+        background-color: $white-color;
+        font-size: to-rem(16px);
+        line-height: to-rem(16px);
+        color: $black-color;
+        transition: border-color 0.2s ease-out;
+
+        &::placeholder {
+            color: transparent;
+        }
+
+        &:focus {
+            outline: none;
+            border-color: $primary-color;
+        }
+    }
+
+    .gbyte-form-group:has(.wpcf7-not-valid-tip):not(:has(textarea)) .gbyte-form-label:not(.gbyte-form-checkbox-label) {
+        top: 50%;
+        transform: translate(0, calc(-50% - (var(--error-span-height, 0px) / 2)));
+    }
+
+    .wpcf7-form-control-wrap:has(> textarea.gbyte-form-control) + .gbyte-form-label {
+        top: to-rem(18px);
+        transform: none;
+    }
+
+    .wpcf7-form-control-wrap:has(> textarea.gbyte-form-control:focus) + .gbyte-form-label,
+    .wpcf7-form-control-wrap:has(> textarea.gbyte-form-control:not(:placeholder-shown)) + .gbyte-form-label {
+        top: to-rem(-8px);
+        font-size: to-rem(12px);
+        color: $primary-color;
+    }
+
+    .wpcf7-form-control-wrap:has(> .gbyte-form-control:focus) + .gbyte-form-label,
+    .wpcf7-form-control-wrap:has(> .gbyte-form-control:not(:placeholder-shown)) + .gbyte-form-label {
+        top: 0;
+        left: to-rem(15px);
+        font-size: to-rem(12px);
+        color: $primary-color;
+    }
+
+    .gbyte-form-group:has(.wpcf7-not-valid-tip) .wpcf7-form-control-wrap:has(> .gbyte-form-control:focus) + .gbyte-form-label,
+    .gbyte-form-group:has(.wpcf7-not-valid-tip) .wpcf7-form-control-wrap:has(> .gbyte-form-control:not(:placeholder-shown)) + .gbyte-form-label {
+        top: to-rem(-8px);
+        left: to-rem(15px);
+        font-size: to-rem(12px);
+        color: $primary-color;
+        transform: none;
+    }
+
+    .gbyte-file-upload-wrapper {
+        input[type="file"] {
+            width: 0.1px;
+            height: 0.1px;
+            opacity: 0;
+            overflow: hidden;
+            position: absolute;
+            z-index: -1;
+        }
+
+        .gbyte-file-upload-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: to-rem(15px) to-rem(25px);
+            border: 1px solid #c5c5c5;
+            border-radius: to-rem(4px);
+            background-color: $white-color;
+            cursor: pointer;
+            transition: border-color 0.2s ease-out;
+
+            &:hover {
+                border-color: $primary-color;
+            }
+            img {
+                max-width: to-rem(20px);
+            }
+        }
+
+        .gbyte-file-upload-text {
+            color: $second_text_color;
+            font-size: to-rem(16px);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+
+    select.gbyte-form-control {
+        &:required:invalid {
+            color: $second_text_color;
+        }
+        option {
+            color: $black-color;
+        }
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%234D4D4D' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: right to-rem(25px) center;
+        background-size: 16px 12px;
+    }
+
+    textarea.gbyte-form-control {
+        resize: vertical;
+        min-height: to-rem(150px);
+    }
+
+    .gbyte-form-group-checkbox {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: to-rem(40px);
+
+        .wpcf7-list-item {
+            display: inline-flex;
+            align-items: flex-start;
+            margin: 0;
+        }
+
+        .wpcf7-list-item > label:not(.gbyte-form-checkbox-label) {
+            display: contents;
+        }
+
+        .gbyte-form-checkbox {
+            flex-shrink: 0;
+            width: to-rem(24px);
+            height: to-rem(24px);
+            margin-top: to-rem(2px);
+            margin-right: to-rem(15px);
+            accent-color: $primary-color;
+        }
+
+        .gbyte-form-checkbox-label {
+            font-size: to-rem(14px);
+            line-height: to-rem(22px);
+            color: #4d4d4d;
+
+            a {
+                color: $primary-color;
+                text-decoration: underline;
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+    .gbyte-btn {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    // Style dla domyślnych błędów walidacji CF7
+    .wpcf7-not-valid-tip {
+        color: #dc3545;
+        font-size: to-rem(13px);
+        line-height: to-rem(13px);
+        font-weight: normal;
+        display: block;
+        margin-top: to-rem(5px);
+    }
+
+    .wpcf7-form-control.wpcf7-not-valid {
+        border-color: #dc3545;
+    }
+
+    .wpcf7-response-output {
+        margin-top: to-rem(20px);
+    }
+
+    .gbyte-file-upload-wrapper:has(.wpcf7-form-control.wpcf7-not-valid) .gbyte-file-upload-label {
+        border-color: #dc3545;
+    }
+}
+
+@media (max-width: 992px) {
+    .gbyte-forms {
+        padding-left: (30px);
+        padding-right: (30px);
+
+        .gbyte-forms__col {
+            max-width: to-rem(530px);
+            margin: auto;
+        }
+        .gbyte-forms__title {
+            font-size: to-rem(28px);
+            line-height: to-rem(32px);
+            margin-bottom: to-rem(40px);
+            width: 100%;
+        }
+    }
+
+    .gbyte-form-group {
+        margin-bottom: to-rem(20px);
+    }
+
+    .gbyte-form-group-checkbox {
+        margin-bottom: to-rem(30px);
+    }
+}

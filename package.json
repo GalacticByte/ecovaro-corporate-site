@@ -1,0 +1,19 @@
+{
+    "name": "ecovaro-theme",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "compile:sass": "sass --style=expanded assets/scss:assets/css",
+        "watch:sass": "sass --style=expanded --watch assets/scss:assets/css",
+        "watch": "npm run watch:sass",
+        "build": "sass --style=compressed --no-source-map assets/scss:assets/css"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "type": "commonjs",
+    "devDependencies": {
+        "sass": "^1.93.2"
+    }
+}

@@ -1,0 +1,85 @@
+@use "base" as *;
+
+/* ==========================================================================
+   Section: Job Listings
+   ========================================================================== */
+
+.gbyte-job-offers {
+    padding-left: (30px);
+    padding-right: (30px);
+    background-color: transparent;
+
+    &__card {
+        background-color: transparent;
+        border: none;
+        .gbyte-job-offers__card-body {
+            padding: to-rem(30px) to-rem(30px);
+        }
+        .gbyte-job-offers__card-title {
+            color: $black-color;
+            font-size: to-rem(24px);
+            line-height: to-rem(28px);
+            text-align: left;
+            margin-bottom: to-rem(55px);
+        }
+    }
+    &__title {
+        font-size: to-rem(52px);
+        line-height: to-rem(60px);
+        margin-bottom: to-rem(60px);
+        color: $black-color;
+        text-align: center;
+    }
+
+    &__list {
+        max-width: to-rem(800px);
+        margin: 0 auto;
+    }
+
+    &__item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: to-rem(30px) 0;
+        border-bottom: 1px solid #e0e0e0;
+        text-decoration: none;
+        transition: background-color 0.2s ease;
+
+        &:first-of-type {
+            border-top: 1px solid #e0e0e0;
+        }
+
+        &:hover {
+            background-color: #f1f0f5;
+
+            .gbyte-job-offers__item-arrow .arrow .b {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__item-title {
+        font-size: to-rem(24px);
+        line-height: to-rem(28px);
+        color: $black-color;
+        margin: 0;
+        font-weight: 400;
+    }
+
+    &__empty {
+        text-align: center;
+        color: $second_text_color;
+        padding: to-rem(40px) 0;
+        border-top: 1px solid #e0e0e0;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    @media (max-width: 992px) {
+        padding: to-rem(70px) to-rem(15px);
+
+        .gbyte-job-offers__title {
+            font-size: to-rem(32px);
+            margin-bottom: to-rem(36px);
+        }
+    }
+}

@@ -1,0 +1,370 @@
+/* ==========================================================================
+   Base styles, fonts, and reset
+   ========================================================================== */
+:root {
+  --swiper-offset-before: 1.875rem;
+  --swiper-offset-after: 1.875rem;
+}
+
+html {
+  font-size: 16px;
+}
+
+@media (min-width: 992px) {
+  html {
+    font-size: 1vw;
+  }
+}
+/* ==========================================================================
+   4. Font Definitions (@font-face)
+   ========================================================================== */
+/* --- Family: Inter --- */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100;
+  src: url("../fonts/Inter_18pt-Thin.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 100;
+  src: url("../fonts/Inter_18pt-ThinItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 200;
+  src: url("../fonts/Inter_18pt-ExtraLight.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 200;
+  src: url("../fonts/Inter_18pt-ExtraLightItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 300;
+  src: url("../fonts/Inter_18pt-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 300;
+  src: url("../fonts/Inter_18pt-LightItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/Inter_18pt-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 400;
+  src: url("../fonts/Inter_18pt-Italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/Inter_18pt-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 500;
+  src: url("../fonts/Inter_18pt-MediumItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../fonts/Inter_18pt-SemiBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 600;
+  src: url("../fonts/Inter_18pt-SemiBoldItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/Inter_18pt-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 700;
+  src: url("../fonts/Inter_18pt-BoldItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 800;
+  src: url("../fonts/Inter_18pt-ExtraBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 800;
+  src: url("../fonts/Inter_18pt-ExtraBoldItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 900;
+  src: url("../fonts/Inter_18pt-Black.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 900;
+  src: url("../fonts/Inter_18pt-BlackItalic.ttf") format("truetype");
+}
+/* ==========================================================================
+   5. General Styles & Utilities
+   ========================================================================== */
+body {
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
+body h6 {
+  font-weight: 500;
+}
+
+a {
+  color: #1f6f3f;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #4db04b;
+  text-decoration: underline;
+}
+
+section[id] {
+  scroll-margin-top: 100px;
+}
+
+.gbyte-hide-on-tablet--flex {
+  display: flex;
+}
+
+.gbyte-show-on-tablet--flex {
+  display: none;
+}
+
+.gbyte-hide-on-mobile--flex {
+  display: flex;
+}
+
+.gbyte-show-on-mobile--flex {
+  display: none;
+}
+
+.default-content {
+  width: 100%;
+  max-width: 85.375rem;
+  margin: auto;
+}
+
+.consent-hidden-text {
+  display: none;
+  padding-top: 10px;
+}
+
+/* Style for the "expand/collapse" button */
+.consent-toggle-button {
+  cursor: pointer;
+  color: #1f6f3f;
+  text-decoration: underline;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.consent-toggle-button:hover {
+  text-decoration: none;
+}
+
+@media (max-width: 992px) {
+  .gbyte-hide-on-tablet--flex {
+    display: none;
+  }
+  .gbyte-show-on-tablet--flex {
+    display: flex;
+  }
+}
+@media (max-width: 768px) {
+  .gbyte-hide-on-mobile--flex {
+    display: none;
+  }
+  .gbyte-show-on-mobile--flex {
+    display: flex;
+  }
+}
+.container-padding-top {
+  padding-top: 8.75rem;
+}
+
+.container-padding-bottom {
+  padding-bottom: 8.75rem;
+}
+
+@media screen and (max-width: 992px) {
+  .container-padding-top {
+    padding-top: 3.75rem;
+  }
+  .container-padding-bottom {
+    padding-bottom: 3.75rem;
+  }
+}
+.gbyte-sticky-content {
+  background-color: #fafafa;
+  padding-left: 1.875rem;
+  padding-right: 1.875rem;
+}
+.gbyte-sticky-content .gbyte-container {
+  width: 100%;
+  margin: auto;
+}
+.gbyte-sticky-content .gbyte-container .gbyte-sticky-content__wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 6.1875rem;
+}
+.gbyte-sticky-content .gbyte-container .gbyte-sticky-content__left {
+  position: sticky;
+  top: 7.5rem;
+  align-self: flex-start;
+}
+.gbyte-sticky-content .gbyte-container .gbyte-sticky-content__left .gbyte-sticky-content__left-title {
+  font-size: 1rem;
+  line-height: 1.625rem;
+  margin-bottom: 6.875rem;
+  color: #1f6f3f;
+}
+.gbyte-sticky-content .gbyte-container .gbyte-sticky-content__left .gbyte-sticky-content__image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.gbyte-sticky-content .gbyte-container .gbyte-sticky-content__right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  max-width: 35.3125rem;
+  margin: 0 auto 0 0;
+}
+.gbyte-sticky-content .gbyte-container .gbyte-sticky-content__right .gbyte-sticky-content__item .gbyte-sticky-content__item-title {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin-bottom: 1.5625rem;
+  color: #00040c;
+}
+.gbyte-sticky-content .gbyte-container .gbyte-sticky-content__right .gbyte-sticky-content__item .gbyte-sticky-content__item-text {
+  font-size: 1rem;
+  line-height: 1.625rem;
+  margin-bottom: 4.0625rem;
+  color: #00040c;
+}
+.gbyte-sticky-content .gbyte-container .gbyte-sticky-content__right .gbyte-sticky-content__item .gbyte-sticky-content__divider {
+  height: 0.0625rem;
+  background-color: #c5c5c5;
+  width: 100%;
+  margin-bottom: 3.75rem;
+}
+.gbyte-sticky-content .gbyte-container .gbyte-sticky-content__right .gbyte-sticky-content__item:last-child .gbyte-sticky-content__item-text {
+  margin-bottom: 0;
+}
+.gbyte-sticky-content .gbyte-container .gbyte-sticky-content__right .gbyte-sticky-content__item:last-child .gbyte-sticky-content__divider {
+  display: none;
+  margin-bottom: 0;
+}
+
+@media (max-width: 992px) {
+  .gbyte-sticky-content {
+    background-color: #fafafa;
+  }
+  .gbyte-sticky-content .gbyte-container {
+    width: 100%;
+    max-width: 85.375rem;
+    margin: auto;
+    padding: 0;
+  }
+  .gbyte-sticky-content .gbyte-container .gbyte-sticky-content__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 3.125rem;
+  }
+  .gbyte-sticky-content .gbyte-container .gbyte-sticky-content__left {
+    position: static;
+    top: 0;
+    align-self: center;
+  }
+  .gbyte-sticky-content .gbyte-container .gbyte-sticky-content__left .gbyte-sticky-content__left-title {
+    font-size: 1rem;
+    line-height: 1.625rem;
+    margin-bottom: 1.5625rem;
+    color: #1f6f3f;
+  }
+  .gbyte-sticky-content .gbyte-container .gbyte-sticky-content__left .gbyte-sticky-content__image {
+    width: 100%;
+    max-width: 34.375rem;
+    height: 100%;
+    object-fit: cover;
+  }
+  .gbyte-sticky-content .gbyte-container .gbyte-sticky-content__right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 35.3125rem;
+    margin: 0 auto 0 auto;
+  }
+  .gbyte-sticky-content .gbyte-container .gbyte-sticky-content__right .gbyte-sticky-content__item .gbyte-sticky-content__item-title {
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+    margin-bottom: 3.125rem;
+    color: #00040c;
+  }
+  .gbyte-sticky-content .gbyte-container .gbyte-sticky-content__right .gbyte-sticky-content__item .gbyte-sticky-content__item-text {
+    font-size: 1rem;
+    line-height: 1.625rem;
+    margin-bottom: 2.5rem;
+    color: #00040c;
+  }
+  .gbyte-sticky-content .gbyte-container .gbyte-sticky-content__right .gbyte-sticky-content__item .gbyte-sticky-content__divider {
+    height: 0.0625rem;
+    background-color: #c5c5c5;
+    width: 100%;
+    margin-bottom: 2.5rem;
+  }
+  .gbyte-sticky-content .gbyte-container .gbyte-sticky-content__right .gbyte-sticky-content__item:last-child .gbyte-sticky-content__item-text {
+    margin-bottom: 0;
+  }
+  .gbyte-sticky-content .gbyte-container .gbyte-sticky-content__right .gbyte-sticky-content__item:last-child .gbyte-sticky-content__divider {
+    display: none;
+    margin-bottom: 0;
+  }
+}
+
+/*# sourceMappingURL=sticky-content.css.map */

@@ -1,0 +1,27 @@
+/* ==========================================================================
+   Main SCSS file for the Ecovaro theme
+   This file imports all modules and is compiled into /assets/css/style.css
+   ========================================================================== */
+
+// 1. Base styles and reset
+@use "parts/base";
+
+// 2. Components
+@use "parts/header";
+@use "parts/navigation";
+@use "parts/hero";
+@use "parts/cards";
+@use "parts/buttons";
+@use "parts/carousel";
+@use "parts/boxes";
+@use "parts/footer";
+@use "parts/text";
+@use "parts/columns";
+@use "parts/sticky-content";
+@use "parts/image-overlay";
+@use "parts/images";
+@use "parts/contact-info";
+@use "parts/forms";
+@use "parts/job-offers-list";
+@use "parts/single-job-offer";
+@use "parts/_404" as *;

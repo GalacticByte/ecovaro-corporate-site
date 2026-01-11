@@ -1,0 +1,309 @@
+/* ==========================================================================
+   Base styles, fonts, and reset
+   ========================================================================== */
+:root {
+  --swiper-offset-before: 1.875rem;
+  --swiper-offset-after: 1.875rem;
+}
+
+html {
+  font-size: 16px;
+}
+
+@media (min-width: 992px) {
+  html {
+    font-size: 1vw;
+  }
+}
+/* ==========================================================================
+   4. Font Definitions (@font-face)
+   ========================================================================== */
+/* --- Family: Inter --- */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100;
+  src: url("../fonts/Inter_18pt-Thin.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 100;
+  src: url("../fonts/Inter_18pt-ThinItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 200;
+  src: url("../fonts/Inter_18pt-ExtraLight.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 200;
+  src: url("../fonts/Inter_18pt-ExtraLightItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 300;
+  src: url("../fonts/Inter_18pt-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 300;
+  src: url("../fonts/Inter_18pt-LightItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/Inter_18pt-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 400;
+  src: url("../fonts/Inter_18pt-Italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/Inter_18pt-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 500;
+  src: url("../fonts/Inter_18pt-MediumItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../fonts/Inter_18pt-SemiBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 600;
+  src: url("../fonts/Inter_18pt-SemiBoldItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/Inter_18pt-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 700;
+  src: url("../fonts/Inter_18pt-BoldItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 800;
+  src: url("../fonts/Inter_18pt-ExtraBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 800;
+  src: url("../fonts/Inter_18pt-ExtraBoldItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 900;
+  src: url("../fonts/Inter_18pt-Black.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 900;
+  src: url("../fonts/Inter_18pt-BlackItalic.ttf") format("truetype");
+}
+/* ==========================================================================
+   5. General Styles & Utilities
+   ========================================================================== */
+body {
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
+body h6 {
+  font-weight: 500;
+}
+
+a {
+  color: #1f6f3f;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #4db04b;
+  text-decoration: underline;
+}
+
+section[id] {
+  scroll-margin-top: 100px;
+}
+
+.gbyte-hide-on-tablet--flex {
+  display: flex;
+}
+
+.gbyte-show-on-tablet--flex {
+  display: none;
+}
+
+.gbyte-hide-on-mobile--flex {
+  display: flex;
+}
+
+.gbyte-show-on-mobile--flex {
+  display: none;
+}
+
+.default-content {
+  width: 100%;
+  max-width: 85.375rem;
+  margin: auto;
+}
+
+.consent-hidden-text {
+  display: none;
+  padding-top: 10px;
+}
+
+/* Style for the "expand/collapse" button */
+.consent-toggle-button {
+  cursor: pointer;
+  color: #1f6f3f;
+  text-decoration: underline;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.consent-toggle-button:hover {
+  text-decoration: none;
+}
+
+@media (max-width: 992px) {
+  .gbyte-hide-on-tablet--flex {
+    display: none;
+  }
+  .gbyte-show-on-tablet--flex {
+    display: flex;
+  }
+}
+@media (max-width: 768px) {
+  .gbyte-hide-on-mobile--flex {
+    display: none;
+  }
+  .gbyte-show-on-mobile--flex {
+    display: flex;
+  }
+}
+.container-padding-top {
+  padding-top: 8.75rem;
+}
+
+.container-padding-bottom {
+  padding-bottom: 8.75rem;
+}
+
+@media screen and (max-width: 992px) {
+  .container-padding-top {
+    padding-top: 3.75rem;
+  }
+  .container-padding-bottom {
+    padding-bottom: 3.75rem;
+  }
+}
+/* ==========================================================================
+   1. Header
+   ========================================================================== */
+.gbyte-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1030;
+  transition: background-color 0.4s ease-out;
+}
+
+.gbyte-header--hero-scrolling::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-color: rgba(31, 111, 63, 0.3);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s ease-out;
+}
+
+.gbyte-header--hero-scrolling:has(.navbar-collapse.show)::before,
+.gbyte-header--hero-scrolling:has(.navbar-collapse.collapsing)::before {
+  transition: all 0.3s ease-out;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.gbyte-header__nav {
+  transition: background-color 0.4s ease-out;
+}
+
+.gbyte-header--scrolled .gbyte-header__nav {
+  background-color: #fff;
+}
+
+.gbyte-header__container {
+  padding: 0.5rem 1.875rem;
+  width: 100%;
+}
+
+.gbyte-header__brand.navbar-brand {
+  position: relative;
+  padding: 0;
+  margin-right: 0;
+}
+
+.gbyte-header__brand .gbyte-header__logo {
+  width: 100%;
+  min-width: 9.25rem;
+  max-width: 9.25rem;
+  height: 100%;
+  transition: opacity 0.4s ease-out;
+}
+
+.gbyte-header__logo--color {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.gbyte-header--scrolled .gbyte-header__logo--white {
+  opacity: 0;
+}
+
+.gbyte-header--scrolled .gbyte-header__logo--color {
+  opacity: 1;
+}
+
+/*# sourceMappingURL=header.css.map */

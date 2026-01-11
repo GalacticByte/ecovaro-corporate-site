@@ -1,0 +1,114 @@
+@use "base" as *;
+
+/* ==========================================================================
+   Section: Image Overlay
+   ========================================================================== */
+
+.gbyte-image-overlay {
+    padding-left: to-rem(30px);
+    padding-right: to-rem(30px);
+    .gbyte-image-overlay__container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: to-rem(450px);
+        background-size: cover;
+        background-position: center;
+        border-radius: to-rem(12px);
+        padding: to-rem(135px) 0;
+        overflow: hidden;
+        color: $white-color;
+        text-align: center;
+        transition: transform 0.4s ease;
+    }
+
+    &__content {
+        position: relative;
+        z-index: 2;
+        max-width: to-rem(900px);
+    }
+
+    &__icon {
+        width: to-rem(90px);
+        margin-bottom: to-rem(65px);
+        height: auto;
+    }
+
+    &__title {
+        font-size: to-rem(32px);
+        line-height: to-rem(38px);
+        margin-bottom: to-rem(45px);
+    }
+
+    &__text {
+        font-size: to-rem(18px);
+        line-height: to-rem(26px);
+        margin-bottom: 0;
+    }
+}
+
+.gbyte-image-overlay.gbyte-image-overlay--layout-02 {
+    margin-bottom: to-rem(40px);
+    .gbyte-image-overlay__title {
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 992px) {
+    .gbyte-image-overlay {
+        padding: 0;
+        margin-bottom: to-rem(70px);
+        .gbyte-image-overlay__container {
+            justify-content: flex-start;
+            min-height: to-rem(450px);
+            padding: to-rem(70px) to-rem(30px);
+            text-align: center;
+            transition: transform 0.4s ease;
+            border-radius: 0;
+        }
+
+        &__content {
+            position: relative;
+            z-index: 2;
+            max-width: to-rem(900px);
+        }
+
+        &__icon {
+            width: to-rem(90px);
+            margin-bottom: to-rem(40px);
+        }
+
+        &__title {
+            font-size: to-rem(24px);
+            line-height: to-rem(32px);
+            margin-bottom: to-rem(25px);
+        }
+
+        &__text {
+            font-size: to-rem(18px);
+            line-height: to-rem(26px);
+            margin-bottom: 0;
+        }
+    }
+
+    .gbyte-image-overlay.gbyte-image-overlay--layout-02 {
+        margin-bottom: to-rem(10px);
+        .gbyte-image-overlay__title {
+            margin-bottom: 0;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .gbyte-image-overlay {
+        .gbyte-image-overlay__container {
+            justify-content: flex-start;
+            min-height: to-rem(450px);
+            padding: to-rem(70px) to-rem(30px);
+            text-align: left;
+            transition: transform 0.4s ease;
+            border-radius: 0;
+        }
+    }
+}

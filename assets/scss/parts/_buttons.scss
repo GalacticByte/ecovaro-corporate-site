@@ -1,0 +1,160 @@
+@use "base" as *;
+
+/* ==========================================================================
+   Component: Buttons
+   ========================================================================== */
+
+.gbyte-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: to-rem(10px);
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    appearance: none;
+    border-radius: to-rem(55px);
+    padding: 0 to-rem(16px);
+    height: to-rem(46px);
+    font-size: to-rem(16px);
+    line-height: normal;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    vertical-align: middle;
+
+    span {
+    }
+    .arrow {
+        width: to-rem(16px);
+        height: to-rem(16px);
+        opacity: 0.5;
+        display: flex;
+        align-items: center;
+        transition: all 0.3s ease-in-out;
+    }
+
+    &:hover {
+        text-decoration: none;
+        background-color: $second-color;
+        color: $white-color;
+        .arrow {
+            opacity: 1;
+            transform: translateX(to-rem(2px));
+        }
+    }
+}
+
+.gbyte-btn.bg-green,
+.gbyte-btn.bg-green:focus-visible,
+.gbyte-btn.bg-green:active {
+    background-color: $primary-color;
+    color: $white-color;
+    &:hover {
+        background-color: $second-color;
+        color: $white-color;
+    }
+    &:hover svg .b {
+        fill: $white-color;
+        opacity: 1;
+    }
+}
+
+.gbyte-btn.bg-white,
+.gbyte-btn.bg-white:focus-visible,
+.gbyte-btn.bg-white:active {
+    background-color: $white-color;
+    color: $primary-color;
+    svg {
+        flex-shrink: 0;
+    }
+    svg .b {
+        fill: $primary-color;
+    }
+    &:hover {
+        color: $black-color;
+        svg .b {
+            fill: $black-color;
+        }
+    }
+}
+
+/* ==========================================================================
+   Button with Icon (e.g., in Hero, Ecology sections)
+   ========================================================================== */
+
+.gbyte-btn--with-icon,
+.gbyte-btn--with-icon:focus-visible,
+.gbyte-btn--with-icon:active {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: to-rem(20px);
+    width: 100%;
+    max-width: to-rem(410px);
+    border-radius: to-rem(20px);
+    transition: all 0.3s ease-in-out;
+    padding: to-rem(16px);
+
+    .gbyte-btn__icon-wrapper {
+        position: relative;
+        width: to-rem(60px);
+        height: to-rem(60px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .gbyte-img-icon {
+            max-width: to-rem(60px);
+            transition: opacity 0.3s ease-in-out;
+            position: absolute;
+        }
+        .gbyte-icon-hover {
+            opacity: 0;
+        }
+    }
+    .arrow {
+        transform: rotate(90deg);
+        .b {
+            opacity: 1;
+        }
+    }
+
+    &:hover {
+        text-decoration: none;
+        .arrow {
+            transform: rotate(90deg) translateX(to-rem(2px));
+        }
+        .gbyte-btn__icon-wrapper {
+            .gbyte-icon-default {
+                opacity: 0;
+            }
+            .gbyte-icon-hover {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+// Specific variant for the Hero section
+.gbyte-btn--hero {
+    max-width: to-rem(405px);
+    background-color: transparent;
+    color: #ffffff;
+    backdrop-filter: blur(7px);
+    border: 1px solid #fff;
+
+    &:hover {
+        background-color: #ffffff;
+        color: $black-color;
+    }
+}
+
+@media (min-width: 1921px) {
+    .gbyte-btn {
+        padding: 0 25px;
+        font-size: 22px;
+        line-height: normal;
+        height: 70px;
+    }
+}

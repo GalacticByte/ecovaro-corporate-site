@@ -1,0 +1,450 @@
+/* ==========================================================================
+   Base styles, fonts, and reset
+   ========================================================================== */
+:root {
+  --swiper-offset-before: 1.875rem;
+  --swiper-offset-after: 1.875rem;
+}
+
+html {
+  font-size: 16px;
+}
+
+@media (min-width: 992px) {
+  html {
+    font-size: 1vw;
+  }
+}
+/* ==========================================================================
+   4. Font Definitions (@font-face)
+   ========================================================================== */
+/* --- Family: Inter --- */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100;
+  src: url("../fonts/Inter_18pt-Thin.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 100;
+  src: url("../fonts/Inter_18pt-ThinItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 200;
+  src: url("../fonts/Inter_18pt-ExtraLight.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 200;
+  src: url("../fonts/Inter_18pt-ExtraLightItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 300;
+  src: url("../fonts/Inter_18pt-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 300;
+  src: url("../fonts/Inter_18pt-LightItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/Inter_18pt-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 400;
+  src: url("../fonts/Inter_18pt-Italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/Inter_18pt-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 500;
+  src: url("../fonts/Inter_18pt-MediumItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../fonts/Inter_18pt-SemiBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 600;
+  src: url("../fonts/Inter_18pt-SemiBoldItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/Inter_18pt-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 700;
+  src: url("../fonts/Inter_18pt-BoldItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 800;
+  src: url("../fonts/Inter_18pt-ExtraBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 800;
+  src: url("../fonts/Inter_18pt-ExtraBoldItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 900;
+  src: url("../fonts/Inter_18pt-Black.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 900;
+  src: url("../fonts/Inter_18pt-BlackItalic.ttf") format("truetype");
+}
+/* ==========================================================================
+   5. General Styles & Utilities
+   ========================================================================== */
+body {
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
+body h6 {
+  font-weight: 500;
+}
+
+a {
+  color: #1f6f3f;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #4db04b;
+  text-decoration: underline;
+}
+
+section[id] {
+  scroll-margin-top: 100px;
+}
+
+.gbyte-hide-on-tablet--flex {
+  display: flex;
+}
+
+.gbyte-show-on-tablet--flex {
+  display: none;
+}
+
+.gbyte-hide-on-mobile--flex {
+  display: flex;
+}
+
+.gbyte-show-on-mobile--flex {
+  display: none;
+}
+
+.default-content {
+  width: 100%;
+  max-width: 85.375rem;
+  margin: auto;
+}
+
+.consent-hidden-text {
+  display: none;
+  padding-top: 10px;
+}
+
+/* Style for the "expand/collapse" button */
+.consent-toggle-button {
+  cursor: pointer;
+  color: #1f6f3f;
+  text-decoration: underline;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.consent-toggle-button:hover {
+  text-decoration: none;
+}
+
+@media (max-width: 992px) {
+  .gbyte-hide-on-tablet--flex {
+    display: none;
+  }
+  .gbyte-show-on-tablet--flex {
+    display: flex;
+  }
+}
+@media (max-width: 768px) {
+  .gbyte-hide-on-mobile--flex {
+    display: none;
+  }
+  .gbyte-show-on-mobile--flex {
+    display: flex;
+  }
+}
+.container-padding-top {
+  padding-top: 8.75rem;
+}
+
+.container-padding-bottom {
+  padding-bottom: 8.75rem;
+}
+
+@media screen and (max-width: 992px) {
+  .container-padding-top {
+    padding-top: 3.75rem;
+  }
+  .container-padding-bottom {
+    padding-bottom: 3.75rem;
+  }
+}
+:root {
+  --error-span-height: 0px;
+}
+
+/* ==========================================================================
+  Section: Contact Form
+   ========================================================================== */
+.gbyte-forms {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.gbyte-forms .gbyte-forms__col {
+  width: 100%;
+  max-width: 40rem;
+}
+.gbyte-forms .gbyte-forms__title {
+  font-size: 2rem;
+  line-height: 2.25rem;
+  margin-bottom: 3.125rem;
+  color: #00040c;
+  width: 80%;
+}
+
+.gbyte-form .gbyte-form-group {
+  position: relative;
+  margin-bottom: 1.25rem;
+}
+.gbyte-form .gbyte-form-label {
+  position: absolute;
+  top: 50%;
+  left: 0.9375rem;
+  transform: translate(0, -50%);
+  color: #4d4d4d;
+  font-size: 1rem;
+  line-height: 1rem;
+  pointer-events: none;
+  transition: all 0.2s ease-out;
+  background-color: #fff;
+  padding: 0;
+}
+.gbyte-form .gbyte-form-control {
+  width: 100%;
+  padding: 1.125rem 0.9375rem;
+  border: 1px solid #c5c5c5;
+  border-radius: 0.25rem;
+  background-color: #fff;
+  font-size: 1rem;
+  line-height: 1rem;
+  color: #00040c;
+  transition: border-color 0.2s ease-out;
+}
+.gbyte-form .gbyte-form-control::placeholder {
+  color: transparent;
+}
+.gbyte-form .gbyte-form-control:focus {
+  outline: none;
+  border-color: #1f6f3f;
+}
+.gbyte-form .gbyte-form-group:has(.wpcf7-not-valid-tip):not(:has(textarea)) .gbyte-form-label:not(.gbyte-form-checkbox-label) {
+  top: 50%;
+  transform: translate(0, calc(-50% - var(--error-span-height, 0px) / 2));
+}
+.gbyte-form .wpcf7-form-control-wrap:has(> textarea.gbyte-form-control) + .gbyte-form-label {
+  top: 1.125rem;
+  transform: none;
+}
+.gbyte-form .wpcf7-form-control-wrap:has(> textarea.gbyte-form-control:focus) + .gbyte-form-label,
+.gbyte-form .wpcf7-form-control-wrap:has(> textarea.gbyte-form-control:not(:placeholder-shown)) + .gbyte-form-label {
+  top: -0.5rem;
+  font-size: 0.75rem;
+  color: #1f6f3f;
+}
+.gbyte-form .wpcf7-form-control-wrap:has(> .gbyte-form-control:focus) + .gbyte-form-label,
+.gbyte-form .wpcf7-form-control-wrap:has(> .gbyte-form-control:not(:placeholder-shown)) + .gbyte-form-label {
+  top: 0;
+  left: 0.9375rem;
+  font-size: 0.75rem;
+  color: #1f6f3f;
+}
+.gbyte-form .gbyte-form-group:has(.wpcf7-not-valid-tip) .wpcf7-form-control-wrap:has(> .gbyte-form-control:focus) + .gbyte-form-label,
+.gbyte-form .gbyte-form-group:has(.wpcf7-not-valid-tip) .wpcf7-form-control-wrap:has(> .gbyte-form-control:not(:placeholder-shown)) + .gbyte-form-label {
+  top: -0.5rem;
+  left: 0.9375rem;
+  font-size: 0.75rem;
+  color: #1f6f3f;
+  transform: none;
+}
+.gbyte-form .gbyte-file-upload-wrapper input[type=file] {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+.gbyte-form .gbyte-file-upload-wrapper .gbyte-file-upload-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.9375rem 1.5625rem;
+  border: 1px solid #c5c5c5;
+  border-radius: 0.25rem;
+  background-color: #fff;
+  cursor: pointer;
+  transition: border-color 0.2s ease-out;
+}
+.gbyte-form .gbyte-file-upload-wrapper .gbyte-file-upload-label:hover {
+  border-color: #1f6f3f;
+}
+.gbyte-form .gbyte-file-upload-wrapper .gbyte-file-upload-label img {
+  max-width: 1.25rem;
+}
+.gbyte-form .gbyte-file-upload-wrapper .gbyte-file-upload-text {
+  color: #4d4d4d;
+  font-size: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.gbyte-form select.gbyte-form-control:required:invalid {
+  color: #4d4d4d;
+}
+.gbyte-form select.gbyte-form-control option {
+  color: #00040c;
+}
+.gbyte-form select.gbyte-form-control {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%234D4D4D' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1.5625rem center;
+  background-size: 16px 12px;
+}
+.gbyte-form textarea.gbyte-form-control {
+  resize: vertical;
+  min-height: 9.375rem;
+}
+.gbyte-form .gbyte-form-group-checkbox {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 2.5rem;
+}
+.gbyte-form .gbyte-form-group-checkbox .wpcf7-list-item {
+  display: inline-flex;
+  align-items: flex-start;
+  margin: 0;
+}
+.gbyte-form .gbyte-form-group-checkbox .wpcf7-list-item > label:not(.gbyte-form-checkbox-label) {
+  display: contents;
+}
+.gbyte-form .gbyte-form-group-checkbox .gbyte-form-checkbox {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-top: 0.125rem;
+  margin-right: 0.9375rem;
+  accent-color: #1f6f3f;
+}
+.gbyte-form .gbyte-form-group-checkbox .gbyte-form-checkbox-label {
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+  color: #4d4d4d;
+}
+.gbyte-form .gbyte-form-group-checkbox .gbyte-form-checkbox-label a {
+  color: #1f6f3f;
+  text-decoration: underline;
+}
+.gbyte-form .gbyte-form-group-checkbox .gbyte-form-checkbox-label a:hover {
+  text-decoration: none;
+}
+.gbyte-form .gbyte-btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.gbyte-form .wpcf7-not-valid-tip {
+  color: #dc3545;
+  font-size: 0.8125rem;
+  line-height: 0.8125rem;
+  font-weight: normal;
+  display: block;
+  margin-top: 0.3125rem;
+}
+.gbyte-form .wpcf7-form-control.wpcf7-not-valid {
+  border-color: #dc3545;
+}
+.gbyte-form .wpcf7-response-output {
+  margin-top: 1.25rem;
+}
+.gbyte-form .gbyte-file-upload-wrapper:has(.wpcf7-form-control.wpcf7-not-valid) .gbyte-file-upload-label {
+  border-color: #dc3545;
+}
+
+@media (max-width: 992px) {
+  .gbyte-forms {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .gbyte-forms .gbyte-forms__col {
+    max-width: 33.125rem;
+    margin: auto;
+  }
+  .gbyte-forms .gbyte-forms__title {
+    font-size: 1.75rem;
+    line-height: 2rem;
+    margin-bottom: 2.5rem;
+    width: 100%;
+  }
+  .gbyte-form-group {
+    margin-bottom: 1.25rem;
+  }
+  .gbyte-form-group-checkbox {
+    margin-bottom: 1.875rem;
+  }
+}
+
+/*# sourceMappingURL=forms.css.map */

@@ -1,0 +1,277 @@
+/* ==========================================================================
+   Base styles, fonts, and reset
+   ========================================================================== */
+
+// 1. Variables
+@use "sass:math";
+
+$primary-color: #1f6f3f;
+$second-color: #4db04b;
+
+$black-color: #00040c;
+$second_text_color: #4d4d4d;
+$white-color: #fff;
+$gray-color: #fafafa;
+
+$bp-md: 768px;
+$bp-lg: 992px;
+$bp-xl: 1200px;
+$bp-xxl: 1920px;
+
+// 2. Functions
+
+// Function to convert px to rem. Expects a value with a px unit (e.g., 16px).
+@function to-rem($pixels) {
+    @if math.is-unitless($pixels) {
+        @error "Function to-rem() requires a unit (px).";
+    }
+    @return math.div($pixels, 16px) * 1rem;
+}
+
+:root {
+    --swiper-offset-before: #{to-rem(30px)};
+    --swiper-offset-after: #{to-rem(30px)};
+}
+
+// 3. Fluid typography and layout
+
+// Default, fixed font-size for mobile devices (below 992px).
+html {
+    font-size: 16px;
+}
+
+// Above 992px, the base font-size is set to 1vw.
+// This allows the entire layout (based on rem units) to scale proportionally to the window width.
+@media (min-width: $bp-lg) {
+    html {
+        font-size: 1vw;
+    }
+}
+
+/* ==========================================================================
+   4. Font Definitions (@font-face)
+   ========================================================================== */
+
+/* --- Family: Inter --- */
+
+@font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 100;
+    src: url("../fonts/Inter_18pt-Thin.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Inter";
+    font-style: italic;
+    font-weight: 100;
+    src: url("../fonts/Inter_18pt-ThinItalic.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 200;
+    src: url("../fonts/Inter_18pt-ExtraLight.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Inter";
+    font-style: italic;
+    font-weight: 200;
+    src: url("../fonts/Inter_18pt-ExtraLightItalic.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 300;
+    src: url("../fonts/Inter_18pt-Light.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Inter";
+    font-style: italic;
+    font-weight: 300;
+    src: url("../fonts/Inter_18pt-LightItalic.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    src: url("../fonts/Inter_18pt-Regular.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Inter";
+    font-style: italic;
+    font-weight: 400;
+    src: url("../fonts/Inter_18pt-Italic.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 500;
+    src: url("../fonts/Inter_18pt-Medium.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Inter";
+    font-style: italic;
+    font-weight: 500;
+    src: url("../fonts/Inter_18pt-MediumItalic.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    src: url("../fonts/Inter_18pt-SemiBold.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Inter";
+    font-style: italic;
+    font-weight: 600;
+    src: url("../fonts/Inter_18pt-SemiBoldItalic.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    src: url("../fonts/Inter_18pt-Bold.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Inter";
+    font-style: italic;
+    font-weight: 700;
+    src: url("../fonts/Inter_18pt-BoldItalic.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 800;
+    src: url("../fonts/Inter_18pt-ExtraBold.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Inter";
+    font-style: italic;
+    font-weight: 800;
+    src: url("../fonts/Inter_18pt-ExtraBoldItalic.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 900;
+    src: url("../fonts/Inter_18pt-Black.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Inter";
+    font-style: italic;
+    font-weight: 900;
+    src: url("../fonts/Inter_18pt-BlackItalic.ttf") format("truetype");
+}
+
+/* ==========================================================================
+   5. General Styles & Utilities
+   ========================================================================== */
+
+body {
+    font-family: "Inter", sans-serif;
+    line-height: 1.6;
+    color: #333;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-weight: 500;
+    }
+}
+
+a {
+    color: $primary-color;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: $second-color;
+    text-decoration: underline;
+}
+
+section[id] {
+    scroll-margin-top: 100px;
+}
+
+.gbyte-hide-on-tablet--flex {
+    display: flex;
+}
+.gbyte-show-on-tablet--flex {
+    display: none;
+}
+
+.gbyte-hide-on-mobile--flex {
+    display: flex;
+}
+.gbyte-show-on-mobile--flex {
+    display: none;
+}
+
+.default-content {
+    width: 100%;
+    max-width: to-rem(1366px);
+    margin: auto;
+}
+
+.consent-hidden-text {
+    display: none;
+    padding-top: 10px;
+}
+
+/* Style for the "expand/collapse" button */
+.consent-toggle-button {
+    cursor: pointer;
+    color: $primary-color;
+    text-decoration: underline;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.consent-toggle-button:hover {
+    text-decoration: none;
+}
+
+@media (max-width: $bp-lg) {
+    .gbyte-hide-on-tablet--flex {
+        display: none;
+    }
+    .gbyte-show-on-tablet--flex {
+        display: flex;
+    }
+}
+
+@media (max-width: 768px) {
+    .gbyte-hide-on-mobile--flex {
+        display: none;
+    }
+    .gbyte-show-on-mobile--flex {
+        display: flex;
+    }
+}
+
+.container-padding-top {
+    padding-top: to-rem(140px);
+}
+.container-padding-bottom {
+    padding-bottom: to-rem(140px);
+}
+
+@media screen and (max-width: 992px) {
+    .container-padding-top {
+        padding-top: to-rem(60px);
+    }
+    .container-padding-bottom {
+        padding-bottom: to-rem(60px);
+    }
+}

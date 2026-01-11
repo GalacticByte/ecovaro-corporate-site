@@ -1,0 +1,396 @@
+/* ==========================================================================
+   2. Main Navigation (Shared & Reset)
+   ========================================================================== */
+@use "base" as *;
+
+/* 2.2. Bootstrap styles reset */
+.gbyte-header__menu .nav-link:focus,
+.gbyte-header__menu .nav-link:focus-visible,
+.gbyte-header__menu .nav-link:active,
+.gbyte-header__menu .dropdown-item:focus,
+.gbyte-header__menu .dropdown-item:focus-visible,
+.gbyte-header__menu .dropdown-item:active {
+    box-shadow: none !important;
+    outline: none !important;
+    background-color: transparent !important;
+}
+
+.sticky-top {
+    position: sticky;
+}
+
+.gbyte-header__menu .nav-item {
+    margin: 0 to-rem(15px);
+    font-size: to-rem(16px);
+    line-height: to-rem(18px);
+    text-align: left;
+    font-weight: 400;
+}
+
+.gbyte-header__menu .nav-item:last-child {
+    margin-right: 0;
+}
+
+.gbyte-header__menu .nav-link {
+    /* Styles for first-level links */
+    color: $white-color;
+    opacity: 0.75;
+    text-decoration: none;
+    padding: 0 0;
+    // padding: to-rem(10px) 0;
+    display: block;
+    transition: opacity 0.3s ease, color 0.3s ease, background-color 0.3s ease;
+}
+
+.gbyte-header__menu .nav-link.show {
+    color: $white-color;
+    opacity: 1;
+}
+
+/* 2.1. Arrow icon (common for all views) */
+.gbyte-header__menu .dropdown-toggle::after {
+    content: "";
+    display: inline-block;
+    width: to-rem(12px);
+    height: to-rem(12px);
+    margin-left: to-rem(8px);
+    vertical-align: -0.1em;
+    border: none;
+    /* Resets the default Bootstrap arrow */
+    transition: opacity 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+}
+
+/* Default arrow appearance (blue) */
+.gbyte-header__menu .dropdown-toggle::after {
+    background-color: $primary-color;
+    -webkit-mask-image: url("../images/strona-glowna/arrow-down-01.svg");
+    mask-image: url("../images/strona-glowna/arrow-down-01.svg");
+}
+
+.gbyte-header.gbyte-header--scrolled .gbyte-header__menu .nav-link {
+    color: $black-color;
+    opacity: 1;
+}
+
+.gbyte-header__menu .nav-link:hover,
+.gbyte-header__menu .nav-item.current-menu-item > .nav-link {
+    opacity: 1;
+}
+
+.gbyte-header.gbyte-header--scrolled .gbyte-header__menu .nav-link:hover,
+.gbyte-header.gbyte-header--scrolled .gbyte-header__menu .nav-item.current-menu-item > .nav-link {
+    color: $primary-color;
+}
+
+/* Exception for the homepage: White arrow before scrolling */
+.home .gbyte-header:not(.gbyte-header--scrolled) .gbyte-header__menu > .nav-item.dropdown > .nav-link::after {
+    background-color: $white-color;
+    opacity: 0.75;
+    -webkit-mask-image: url("../images/strona-glowna/arrow-down-main-01.svg");
+    mask-image: url("../images/strona-glowna/arrow-down-main-01.svg");
+}
+
+.home .gbyte-header:not(.gbyte-header--scrolled) .gbyte-header__menu > .nav-item.dropdown > .nav-link:hover::after {
+    opacity: 1;
+}
+
+/* 2.3. Submenu (Dropdown) - Common Styles */
+.gbyte-header__menu .dropdown-menu {
+    list-style: none;
+    margin-top: to-rem(10px) !important;
+    padding: to-rem(20px) 0;
+    min-width: auto;
+    background-color: $white-color;
+    border-radius: to-rem(20px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border: none;
+}
+
+.gbyte-header__menu .dropdown-menu .menu-item {
+    margin: 0 0 to-rem(15px) 0;
+}
+
+.gbyte-header__menu .dropdown-menu .menu-item:last-child {
+    margin: 0;
+}
+
+.gbyte-header__menu .dropdown-menu .dropdown-item a {
+    padding: 0;
+    color: $black-color;
+    opacity: 1;
+    white-space: nowrap;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.gbyte-header__menu .dropdown-item:hover,
+.gbyte-header__menu .dropdown-item:active,
+.gbyte-header__menu .dropdown-item.active,
+.gbyte-header__menu .current-menu-item > .dropdown-item {
+    color: $second-color;
+    background-color: transparent !important;
+    text-decoration: none;
+}
+
+/* Corrected styles for the dropdown item with an icon */
+.gbyte-header__menu .dropdown-item {
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
+
+.gbyte-header__menu .dropdown-item::before {
+    content: "";
+
+    display: none;
+}
+
+/* ==========================================================================
+   3. Desktop Navigation
+   ========================================================================== */
+@media (min-width: 992px) {
+    .gbyte-header__menu .dropdown-menu {
+        display: block; /* Must be block for the transition to work */
+        opacity: 0;
+        visibility: hidden;
+        padding: to-rem(20px);
+        pointer-events: none;
+        transform: translateY(to-rem(10px));
+        transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out, visibility 0.2s;
+    }
+
+    .gbyte-header__menu .dropdown-menu .dropdown {
+        position: relative;
+    }
+
+    .gbyte-header__menu .dropdown-menu .dropdown .dropdown-menu {
+        top: 0;
+        left: 100%; /* Positioning nested menus on the right */
+        margin-left: 0.1rem;
+        margin-top: -1px; /* Better alignment with the parent */
+    }
+
+    /* Show submenus (all levels) when they receive the .show class */
+    .gbyte-header__menu .dropdown-menu.show {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    /* Arrow for nested dropdowns */
+    .gbyte-header__menu .dropdown-menu .dropdown-toggle::after {
+        -webkit-mask-image: url("../images/strona-glowna/arrow-down-01.svg");
+        mask-image: url("../images/strona-glowna/arrow-down-01.svg");
+        transform: rotate(0deg); /* Reset rotation from mobile menu */
+        margin-left: to-rem(10px);
+        /* Adjust spacing */
+    }
+
+    /* Rotate arrow down when submenu is open (for the first level) */
+    .gbyte-header__menu > .nav-item.dropdown > .nav-link[aria-expanded="true"]::after {
+        transform: rotate(180deg);
+    }
+}
+
+/* ==========================================================================
+   5. Mobile Navigation
+   ========================================================================== */
+#gbyte-navbar-collapse {
+    justify-content: flex-end;
+}
+
+/* 5.1. "Hamburger" Button */
+.navbar-toggler {
+    border: none;
+    padding: 0;
+    z-index: 1040;
+    /* Higher than .navbar-collapse */
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.navbar-toggler .navbar-toggler-icon {
+    background-image: none; /* Hide the default SVG icon */
+    height: auto;
+}
+
+.navbar-toggler .navbar-toggler-icon span {
+    display: block;
+    background-color: $white-color;
+    height: to-rem(3px);
+    width: to-rem(30px);
+    border-radius: to-rem(4px);
+    transition: all 0.3s ease;
+}
+
+.navbar-toggler .navbar-toggler-icon span + span {
+    margin-top: to-rem(6px); /* Spacing between the lines */
+}
+
+/* Animation to "X" on click */
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon span:nth-child(2) {
+    opacity: 0;
+}
+
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Change hamburger color on scroll and in open menu */
+.gbyte-header.gbyte-header--scrolled .navbar-toggler .navbar-toggler-icon span,
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon span {
+    background-color: $black-color;
+}
+
+/* Media Query for mobile devices */
+@media (max-width: 991.98px) {
+    /* 5.2. Container and general styles for mobile menu */
+    .navbar-collapse.collapse:not(.show) {
+        display: none;
+    }
+
+    .navbar-collapse.collapsing {
+        height: 100%;
+        transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+        transform: translateY(-100%);
+    }
+
+    .navbar-collapse.show {
+        transform: translateY(0);
+    }
+    /* Fullscreen mobile menu */
+    .navbar-collapse {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $white-color;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        transition: none; /* Bootstrap handles the animation via .collapsing */
+        transform: translateY(-100%);
+    }
+
+    #gbyte-navbar-collapse {
+        justify-content: center;
+    }
+
+    .gbyte-header__menu {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .gbyte-header__menu .nav-item {
+        margin: to-rem(15px) 0;
+    }
+
+    .gbyte-header__menu .nav-link {
+        color: $black-color;
+        font-size: to-rem(32px);
+        line-height: to-rem(28px);
+        opacity: 1; /* Ensure links are fully visible */
+    }
+
+    /* Color for active/expanded link in mobile menu */
+    .gbyte-header__menu .nav-link.show {
+        color: $black-color;
+    }
+
+    /* On mobile, the arrow on the homepage (hero) should be blue, like on other pages */
+    .home .gbyte-header:not(.gbyte-header--scrolled) .gbyte-header__menu > .nav-item.dropdown > .nav-link::after {
+        background-color: $primary-color;
+        -webkit-mask-image: url("../images/strona-glowna/arrow-down-01.svg");
+        mask-image: url("../images/strona-glowna/arrow-down-01.svg");
+    }
+
+    /* 5.3. Submenu and animation in mobile view */
+    .gbyte-header__menu .dropdown-menu,
+    .gbyte-header__menu .sub-menu {
+        /* Reset styles from desktop */
+        background-color: transparent;
+        border: none;
+        box-shadow: none;
+        padding: 0;
+
+        /* Slide animation logic */
+        display: block !important; /* Crucial: Always block for the animation to work */
+        overflow: hidden;
+        max-height: 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: max-height 0.35s ease-out, opacity 0.35s ease-out, visibility 0.35s;
+    }
+
+    /* When Bootstrap adds the .show class */
+    .gbyte-header__menu .dropdown-menu.show,
+    .gbyte-header__menu .sub-menu.show {
+        max-height: to-rem(640px); /* 40rem */
+        padding-left: 0;
+        margin-top: to-rem(30px) !important;
+        margin-bottom: to-rem(10px);
+        /* A value large enough to accommodate the content */
+        opacity: 1;
+        visibility: visible;
+    }
+    .gbyte-header__menu .dropdown-menu .nav-item,
+    .dropdown-item {
+        font-size: to-rem(16px);
+        line-height: to-rem(24px);
+    }
+
+    /* 5.4. Arrows in mobile menu */
+    .gbyte-header__menu .dropdown-toggle::after {
+        transition: transform 0.3s ease !important;
+        width: to-rem(20px);
+        height: to-rem(20px);
+    }
+
+    .gbyte-header__menu .dropdown-toggle[aria-expanded="true"]::after {
+        transform: rotate(180deg) !important;
+    }
+
+    /* On mobile, reset the positioning of nested menus from desktop */
+    .gbyte-header__menu .dropdown-menu .dropdown .dropdown-menu {
+        position: static;
+        left: auto;
+        top: auto;
+        margin: 0;
+        border: none;
+        box-shadow: none;
+        background-color: transparent;
+        padding-left: to-rem(15px);
+        /* Add indentation for nested elements */
+    }
+
+    .gbyte-header__menu .dropdown-item::before {
+        content: "";
+        display: inline-block;
+        width: to-rem(24px);
+        height: to-rem(24px);
+        margin-right: to-rem(8px); /* Spacing between icon and text */
+        background-image: url("../images/strona-glowna/arrow-right-nav.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        flex-shrink: 0; /* Prevents the icon from shrinking */
+    }
+
+    .gbyte-header__brand img {
+        max-height: to-rem(40px);
+    }
+}

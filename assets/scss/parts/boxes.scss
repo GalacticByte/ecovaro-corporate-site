@@ -1,0 +1,82 @@
+@use "base" as *;
+
+/* ==========================================================================
+   Section with two boxes
+   ========================================================================== */
+
+.gbyte-boxes {
+    padding-left: to-rem(30px);
+    padding-right: to-rem(30px);
+    margin: 0 auto to-rem(180px) auto;
+
+    .gbyte-boxes__box {
+        padding: to-rem(50px) to-rem(80px) to-rem(70px) to-rem(80px);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .gbyte-boxes__title {
+            margin-bottom: to-rem(75px);
+            font-size: to-rem(52px);
+            line-height: to-rem(60px);
+        }
+
+        .gbyte-boxes__text {
+            margin-bottom: to-rem(80px);
+            font-size: to-rem(18px);
+            line-height: to-rem(26px);
+        }
+        .gbyte-btn {
+            max-width: fit-content;
+            svg .b {
+                fill: $white-color;
+            }
+            &:hover svg .b {
+                fill: $white-color;
+            }
+        }
+
+        &--left {
+            border-radius: to-rem(12px) 0 0 to-rem(12px);
+            .gbyte-boxes__title,
+            .gbyte-boxes__text {
+                color: $black-color;
+            }
+        }
+
+        &--right {
+            border-radius: 0 to-rem(12px) to-rem(12px) 0;
+            .gbyte-boxes__title,
+            .gbyte-boxes__text {
+                color: $black-color;
+            }
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .gbyte-boxes {
+        padding-left: to-rem(15px);
+        padding-right: to-rem(15px);
+        margin-bottom: to-rem(70px);
+
+        .gbyte-boxes__box {
+            padding: to-rem(25px) to-rem(15px);
+            height: 100%;
+            border-radius: to-rem(12px);
+
+            .gbyte-boxes__title {
+                margin-bottom: to-rem(15px);
+                font-size: to-rem(32px);
+                line-height: to-rem(38px);
+            }
+
+            .gbyte-boxes__text {
+                margin-bottom: to-rem(25px);
+                font-size: to-rem(16px);
+                line-height: to-rem(24px);
+            }
+        }
+    }
+}

@@ -1,0 +1,154 @@
+@use "base" as *;
+
+.gbyte-single-job-offer {
+    padding: to-rem(100px) to-rem(15px);
+    width: 100%;
+    max-width: to-rem(1280px);
+    margin: auto;
+
+    &__header {
+        text-align: left;
+        margin-bottom: to-rem(80px);
+    }
+
+    &__title {
+        font-size: to-rem(72px);
+        line-height: to-rem(76px);
+        color: $black-color;
+    }
+    &__row {
+        --bs-gutter-x: 100px;
+    }
+}
+
+.gbyte-single-job-offer__content {
+    color: $second_text_color;
+
+    h2,
+    h3,
+    h4 {
+        color: $black-color;
+        margin-top: to-rem(40px);
+        margin-bottom: to-rem(20px);
+    }
+
+    h2 {
+        font-size: to-rem(32px);
+        line-height: to-rem(38px);
+    }
+
+    h3 {
+        font-size: to-rem(24px);
+        line-height: to-rem(28px);
+    }
+
+    p {
+        font-size: to-rem(18px);
+        line-height: to-rem(28px);
+        margin-bottom: to-rem(25px);
+    }
+
+    ul,
+    ol {
+        padding-left: to-rem(25px);
+        margin-bottom: to-rem(25px);
+
+        li {
+            font-size: to-rem(18px);
+            line-height: to-rem(28px);
+            margin-bottom: to-rem(10px);
+        }
+    }
+
+    strong {
+        font-weight: 500;
+        color: $black-color;
+    }
+}
+
+.gbyte-single-job-offer__sidebar-wrapper {
+    position: sticky;
+    // Set top based on header height + extra margin
+    top: calc(var(--header-height, 90px) + 40px);
+
+    .gbyte-single-job-offer__sidebar-sticky {
+        text-align: center;
+        // Removed unnecessary styles
+    }
+
+    .gbyte-btn {
+        width: 100%;
+        margin-bottom: to-rem(20px);
+        justify-content: center;
+        align-items: center;
+    }
+
+    .gbyte-single-job-offer__date {
+        font-size: to-rem(14px);
+        color: $second_text_color;
+    }
+}
+
+@media (max-width: 992px) {
+    .gbyte-single-job-offer {
+        padding: to-rem(70px) to-rem(15px);
+
+        &__header {
+            text-align: center;
+            margin-bottom: to-rem(40px);
+        }
+
+        .gbyte-single-job-offer__title {
+            font-size: to-rem(42px);
+            line-height: to-rem(48px);
+            text-align: left;
+        }
+        .gbyte-single-job-offer__row {
+            --bs-gutter-x: 1.5rem;
+        }
+    }
+
+    .gbyte-single-job-offer__content {
+        margin-bottom: to-rem(40px);
+        p,
+        li {
+            font-size: to-rem(16px);
+        }
+    }
+
+    .gbyte-single-job-offer__sidebar-wrapper {
+        position: fixed;
+        top: auto;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(to top, $white-color 60%, rgba(255, 255, 255, 0.7) 85%, transparent 100%);
+        padding: to-rem(15px);
+        box-shadow: 0 to-rem(-4px) to-rem(12px) rgba($black-color, 0.08);
+        z-index: 100;
+        transform: translateY(100%);
+        transition: transform 0.4s ease-in-out;
+
+        &.is-visible {
+            transform: translateY(0);
+        }
+
+        .gbyte-single-job-offer__sidebar-sticky {
+            position: static;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            align-items: center;
+            gap: to-rem(20px);
+            padding-top: to-rem(30px);
+        }
+
+        .gbyte-btn {
+            width: 100%;
+            margin-bottom: 0;
+        }
+        .gbyte-single-job-offer__date {
+            white-space: nowrap;
+        }
+    }
+}

@@ -1,0 +1,605 @@
+/* ==========================================================================
+   2. Main Navigation (Shared & Reset)
+   ========================================================================== */
+/* ==========================================================================
+   Base styles, fonts, and reset
+   ========================================================================== */
+:root {
+  --swiper-offset-before: 1.875rem;
+  --swiper-offset-after: 1.875rem;
+}
+
+html {
+  font-size: 16px;
+}
+
+@media (min-width: 992px) {
+  html {
+    font-size: 1vw;
+  }
+}
+/* ==========================================================================
+   4. Font Definitions (@font-face)
+   ========================================================================== */
+/* --- Family: Inter --- */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100;
+  src: url("../fonts/Inter_18pt-Thin.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 100;
+  src: url("../fonts/Inter_18pt-ThinItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 200;
+  src: url("../fonts/Inter_18pt-ExtraLight.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 200;
+  src: url("../fonts/Inter_18pt-ExtraLightItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 300;
+  src: url("../fonts/Inter_18pt-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 300;
+  src: url("../fonts/Inter_18pt-LightItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/Inter_18pt-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 400;
+  src: url("../fonts/Inter_18pt-Italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/Inter_18pt-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 500;
+  src: url("../fonts/Inter_18pt-MediumItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../fonts/Inter_18pt-SemiBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 600;
+  src: url("../fonts/Inter_18pt-SemiBoldItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/Inter_18pt-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 700;
+  src: url("../fonts/Inter_18pt-BoldItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 800;
+  src: url("../fonts/Inter_18pt-ExtraBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 800;
+  src: url("../fonts/Inter_18pt-ExtraBoldItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 900;
+  src: url("../fonts/Inter_18pt-Black.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 900;
+  src: url("../fonts/Inter_18pt-BlackItalic.ttf") format("truetype");
+}
+/* ==========================================================================
+   5. General Styles & Utilities
+   ========================================================================== */
+body {
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
+body h6 {
+  font-weight: 500;
+}
+
+a {
+  color: #1f6f3f;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #4db04b;
+  text-decoration: underline;
+}
+
+section[id] {
+  scroll-margin-top: 100px;
+}
+
+.gbyte-hide-on-tablet--flex {
+  display: flex;
+}
+
+.gbyte-show-on-tablet--flex {
+  display: none;
+}
+
+.gbyte-hide-on-mobile--flex {
+  display: flex;
+}
+
+.gbyte-show-on-mobile--flex {
+  display: none;
+}
+
+.default-content {
+  width: 100%;
+  max-width: 85.375rem;
+  margin: auto;
+}
+
+.consent-hidden-text {
+  display: none;
+  padding-top: 10px;
+}
+
+/* Style for the "expand/collapse" button */
+.consent-toggle-button {
+  cursor: pointer;
+  color: #1f6f3f;
+  text-decoration: underline;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.consent-toggle-button:hover {
+  text-decoration: none;
+}
+
+@media (max-width: 992px) {
+  .gbyte-hide-on-tablet--flex {
+    display: none;
+  }
+  .gbyte-show-on-tablet--flex {
+    display: flex;
+  }
+}
+@media (max-width: 768px) {
+  .gbyte-hide-on-mobile--flex {
+    display: none;
+  }
+  .gbyte-show-on-mobile--flex {
+    display: flex;
+  }
+}
+.container-padding-top {
+  padding-top: 8.75rem;
+}
+
+.container-padding-bottom {
+  padding-bottom: 8.75rem;
+}
+
+@media screen and (max-width: 992px) {
+  .container-padding-top {
+    padding-top: 3.75rem;
+  }
+  .container-padding-bottom {
+    padding-bottom: 3.75rem;
+  }
+}
+/* 2.2. Bootstrap styles reset */
+.gbyte-header__menu .nav-link:focus,
+.gbyte-header__menu .nav-link:focus-visible,
+.gbyte-header__menu .nav-link:active,
+.gbyte-header__menu .dropdown-item:focus,
+.gbyte-header__menu .dropdown-item:focus-visible,
+.gbyte-header__menu .dropdown-item:active {
+  box-shadow: none !important;
+  outline: none !important;
+  background-color: transparent !important;
+}
+
+.sticky-top {
+  position: sticky;
+}
+
+.gbyte-header__menu .nav-item {
+  margin: 0 0.9375rem;
+  font-size: 1rem;
+  line-height: 1.125rem;
+  text-align: left;
+  font-weight: 400;
+}
+
+.gbyte-header__menu .nav-item:last-child {
+  margin-right: 0;
+}
+
+.gbyte-header__menu .nav-link {
+  /* Styles for first-level links */
+  color: #fff;
+  opacity: 0.75;
+  text-decoration: none;
+  padding: 0 0;
+  display: block;
+  transition: opacity 0.3s ease, color 0.3s ease, background-color 0.3s ease;
+}
+
+.gbyte-header__menu .nav-link.show {
+  color: #fff;
+  opacity: 1;
+}
+
+/* 2.1. Arrow icon (common for all views) */
+.gbyte-header__menu .dropdown-toggle::after {
+  content: "";
+  display: inline-block;
+  width: 0.75rem;
+  height: 0.75rem;
+  margin-left: 0.5rem;
+  vertical-align: -0.1em;
+  border: none;
+  /* Resets the default Bootstrap arrow */
+  transition: opacity 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+
+/* Default arrow appearance (blue) */
+.gbyte-header__menu .dropdown-toggle::after {
+  background-color: #1f6f3f;
+  -webkit-mask-image: url("../images/strona-glowna/arrow-down-01.svg");
+  mask-image: url("../images/strona-glowna/arrow-down-01.svg");
+}
+
+.gbyte-header.gbyte-header--scrolled .gbyte-header__menu .nav-link {
+  color: #00040c;
+  opacity: 1;
+}
+
+.gbyte-header__menu .nav-link:hover,
+.gbyte-header__menu .nav-item.current-menu-item > .nav-link {
+  opacity: 1;
+}
+
+.gbyte-header.gbyte-header--scrolled .gbyte-header__menu .nav-link:hover,
+.gbyte-header.gbyte-header--scrolled .gbyte-header__menu .nav-item.current-menu-item > .nav-link {
+  color: #1f6f3f;
+}
+
+/* Exception for the homepage: White arrow before scrolling */
+.home .gbyte-header:not(.gbyte-header--scrolled) .gbyte-header__menu > .nav-item.dropdown > .nav-link::after {
+  background-color: #fff;
+  opacity: 0.75;
+  -webkit-mask-image: url("../images/strona-glowna/arrow-down-main-01.svg");
+  mask-image: url("../images/strona-glowna/arrow-down-main-01.svg");
+}
+
+.home .gbyte-header:not(.gbyte-header--scrolled) .gbyte-header__menu > .nav-item.dropdown > .nav-link:hover::after {
+  opacity: 1;
+}
+
+/* 2.3. Submenu (Dropdown) - Common Styles */
+.gbyte-header__menu .dropdown-menu {
+  list-style: none;
+  margin-top: 0.625rem !important;
+  padding: 1.25rem 0;
+  min-width: auto;
+  background-color: #fff;
+  border-radius: 1.25rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  border: none;
+}
+
+.gbyte-header__menu .dropdown-menu .menu-item {
+  margin: 0 0 0.9375rem 0;
+}
+
+.gbyte-header__menu .dropdown-menu .menu-item:last-child {
+  margin: 0;
+}
+
+.gbyte-header__menu .dropdown-menu .dropdown-item a {
+  padding: 0;
+  color: #00040c;
+  opacity: 1;
+  white-space: nowrap;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.gbyte-header__menu .dropdown-item:hover,
+.gbyte-header__menu .dropdown-item:active,
+.gbyte-header__menu .dropdown-item.active,
+.gbyte-header__menu .current-menu-item > .dropdown-item {
+  color: #4db04b;
+  background-color: transparent !important;
+  text-decoration: none;
+}
+
+/* Corrected styles for the dropdown item with an icon */
+.gbyte-header__menu .dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+.gbyte-header__menu .dropdown-item::before {
+  content: "";
+  display: none;
+}
+
+/* ==========================================================================
+   3. Desktop Navigation
+   ========================================================================== */
+@media (min-width: 992px) {
+  .gbyte-header__menu .dropdown-menu {
+    display: block; /* Must be block for the transition to work */
+    opacity: 0;
+    visibility: hidden;
+    padding: 1.25rem;
+    pointer-events: none;
+    transform: translateY(0.625rem);
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out, visibility 0.2s;
+  }
+  .gbyte-header__menu .dropdown-menu .dropdown {
+    position: relative;
+  }
+  .gbyte-header__menu .dropdown-menu .dropdown .dropdown-menu {
+    top: 0;
+    left: 100%; /* Positioning nested menus on the right */
+    margin-left: 0.1rem;
+    margin-top: -1px; /* Better alignment with the parent */
+  }
+  /* Show submenus (all levels) when they receive the .show class */
+  .gbyte-header__menu .dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+  /* Arrow for nested dropdowns */
+  .gbyte-header__menu .dropdown-menu .dropdown-toggle::after {
+    -webkit-mask-image: url("../images/strona-glowna/arrow-down-01.svg");
+    mask-image: url("../images/strona-glowna/arrow-down-01.svg");
+    transform: rotate(0deg); /* Reset rotation from mobile menu */
+    margin-left: 0.625rem;
+    /* Adjust spacing */
+  }
+  /* Rotate arrow down when submenu is open (for the first level) */
+  .gbyte-header__menu > .nav-item.dropdown > .nav-link[aria-expanded=true]::after {
+    transform: rotate(180deg);
+  }
+}
+/* ==========================================================================
+   5. Mobile Navigation
+   ========================================================================== */
+#gbyte-navbar-collapse {
+  justify-content: flex-end;
+}
+
+/* 5.1. "Hamburger" Button */
+.navbar-toggler {
+  border: none;
+  padding: 0;
+  z-index: 1040;
+  /* Higher than .navbar-collapse */
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.navbar-toggler .navbar-toggler-icon {
+  background-image: none; /* Hide the default SVG icon */
+  height: auto;
+}
+
+.navbar-toggler .navbar-toggler-icon span {
+  display: block;
+  background-color: #fff;
+  height: 0.1875rem;
+  width: 1.875rem;
+  border-radius: 0.25rem;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler .navbar-toggler-icon span + span {
+  margin-top: 0.375rem; /* Spacing between the lines */
+}
+
+/* Animation to "X" on click */
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon span:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Change hamburger color on scroll and in open menu */
+.gbyte-header.gbyte-header--scrolled .navbar-toggler .navbar-toggler-icon span,
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon span {
+  background-color: #00040c;
+}
+
+/* Media Query for mobile devices */
+@media (max-width: 991.98px) {
+  /* 5.2. Container and general styles for mobile menu */
+  .navbar-collapse.collapse:not(.show) {
+    display: none;
+  }
+  .navbar-collapse.collapsing {
+    height: 100%;
+    transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+    transform: translateY(-100%);
+  }
+  .navbar-collapse.show {
+    transform: translateY(0);
+  }
+  /* Fullscreen mobile menu */
+  .navbar-collapse {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: none; /* Bootstrap handles the animation via .collapsing */
+    transform: translateY(-100%);
+  }
+  #gbyte-navbar-collapse {
+    justify-content: center;
+  }
+  .gbyte-header__menu {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .gbyte-header__menu .nav-item {
+    margin: 0.9375rem 0;
+  }
+  .gbyte-header__menu .nav-link {
+    color: #00040c;
+    font-size: 2rem;
+    line-height: 1.75rem;
+    opacity: 1; /* Ensure links are fully visible */
+  }
+  /* Color for active/expanded link in mobile menu */
+  .gbyte-header__menu .nav-link.show {
+    color: #00040c;
+  }
+  /* On mobile, the arrow on the homepage (hero) should be blue, like on other pages */
+  .home .gbyte-header:not(.gbyte-header--scrolled) .gbyte-header__menu > .nav-item.dropdown > .nav-link::after {
+    background-color: #1f6f3f;
+    -webkit-mask-image: url("../images/strona-glowna/arrow-down-01.svg");
+    mask-image: url("../images/strona-glowna/arrow-down-01.svg");
+  }
+  /* 5.3. Submenu and animation in mobile view */
+  .gbyte-header__menu .dropdown-menu,
+  .gbyte-header__menu .sub-menu {
+    /* Reset styles from desktop */
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    /* Slide animation logic */
+    display: block !important; /* Crucial: Always block for the animation to work */
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: max-height 0.35s ease-out, opacity 0.35s ease-out, visibility 0.35s;
+  }
+  /* When Bootstrap adds the .show class */
+  .gbyte-header__menu .dropdown-menu.show,
+  .gbyte-header__menu .sub-menu.show {
+    max-height: 40rem; /* 40rem */
+    padding-left: 0;
+    margin-top: 1.875rem !important;
+    margin-bottom: 0.625rem;
+    /* A value large enough to accommodate the content */
+    opacity: 1;
+    visibility: visible;
+  }
+  .gbyte-header__menu .dropdown-menu .nav-item,
+  .dropdown-item {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+  /* 5.4. Arrows in mobile menu */
+  .gbyte-header__menu .dropdown-toggle::after {
+    transition: transform 0.3s ease !important;
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+  .gbyte-header__menu .dropdown-toggle[aria-expanded=true]::after {
+    transform: rotate(180deg) !important;
+  }
+  /* On mobile, reset the positioning of nested menus from desktop */
+  .gbyte-header__menu .dropdown-menu .dropdown .dropdown-menu {
+    position: static;
+    left: auto;
+    top: auto;
+    margin: 0;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    padding-left: 0.9375rem;
+    /* Add indentation for nested elements */
+  }
+  .gbyte-header__menu .dropdown-item::before {
+    content: "";
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.5rem; /* Spacing between icon and text */
+    background-image: url("../images/strona-glowna/arrow-right-nav.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    flex-shrink: 0; /* Prevents the icon from shrinking */
+  }
+  .gbyte-header__brand img {
+    max-height: 2.5rem;
+  }
+}
+
+/*# sourceMappingURL=navigation.css.map */

@@ -1,0 +1,135 @@
+@use "base" as *;
+
+/* ==========================================================================
+   Section with an image carousel (Swiper.js)
+   ========================================================================== */
+
+.gbyte-carousel {
+    padding: to-rem(60px) 0;
+    background-color: $gray-color;
+
+    .gbyte-container {
+        width: 100%;
+    }
+}
+
+.gbyte-carousel__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto to-rem(20px) auto;
+    padding: 0 to-rem(30px);
+
+    .gbyte-carousel__title {
+        margin: 0;
+        color: $black-color;
+        font-size: to-rem(52px);
+        line-height: to-rem(60px);
+    }
+}
+
+.gbyte-carousel__nav {
+    display: flex;
+    gap: to-rem(10px);
+    position: relative;
+
+    .gbyte-carousel__nav-btn {
+        position: static;
+        margin-top: 0;
+        width: auto;
+        height: auto;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        padding: to-rem(10px);
+
+        &::after {
+            display: "none";
+        }
+
+        svg {
+            background-color: transparent;
+            transition: all 0.3s ease;
+            width: to-rem(40px);
+            .b {
+                fill: $black-color;
+            }
+        }
+
+        &:hover {
+            background-color: #fff;
+        }
+    }
+
+    .gbyte-carousel__nav-btn--next svg {
+        transform: rotate(180deg);
+    }
+}
+
+.gbyte-carousel__slider-container {
+    width: 100%;
+    margin: auto;
+    transition: max-width 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.gbyte-carousel__slider {
+    position: relative !important;
+    width: calc(calc(100vw - ((100vw - 98.7%) / 2)));
+
+    .swiper-slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        transition: opacity 0.3s ease;
+
+        img {
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+    }
+}
+
+// Styling a custom progress bar
+.gbyte-carousel__pagination {
+    position: static !important;
+    height: to-rem(4px);
+    background-color: #e0e0e0;
+    width: 100%;
+    max-width: to-rem(150px);
+    margin: to-rem(50px) auto 0 auto;
+
+    .swiper-pagination-progressbar-fill {
+        background: $primary-color !important;
+    }
+}
+.swiper-pagination-progressbar {
+    background-color: #eceae8 !important;
+}
+
+.gbyte-carousel__footer {
+    text-align: center;
+    margin-top: to-rem(50px);
+    .gbyte-btn {
+        svg .b {
+            fill: $white-color;
+        }
+        &:hover svg .b {
+            fill: $white-color;
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .gbyte-carousel__header {
+        .gbyte-carousel__title {
+            margin: 0;
+            color: $black-color;
+            font-size: to-rem(32px);
+            line-height: to-rem(38px);
+        }
+    }
+    .gbyte-carousel__nav {
+        display: none;
+    }
+}

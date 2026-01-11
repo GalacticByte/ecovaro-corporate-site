@@ -1,0 +1,145 @@
+@use "base" as *;
+
+.gbyte-sticky-content {
+    background-color: #fafafa;
+    padding-left: to-rem(30px);
+    padding-right: to-rem(30px);
+    .gbyte-container {
+        width: 100%;
+        margin: auto;
+        .gbyte-sticky-content__wrapper {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: to-rem(99px);
+        }
+        .gbyte-sticky-content__left {
+            position: sticky;
+            top: to-rem(120px);
+            align-self: flex-start;
+            .gbyte-sticky-content__left-title {
+                font-size: to-rem(16px);
+                line-height: to-rem(26px);
+                margin-bottom: to-rem(110px);
+                color: $primary-color;
+            }
+            .gbyte-sticky-content__image {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+            }
+        }
+        .gbyte-sticky-content__right {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+            max-width: to-rem(565px);
+            margin: 0 auto 0 0;
+            .gbyte-sticky-content__item {
+                .gbyte-sticky-content__item-title {
+                    font-size: to-rem(24px);
+                    line-height: to-rem(32px);
+                    margin-bottom: to-rem(25px);
+                    color: $black-color;
+                }
+                .gbyte-sticky-content__item-text {
+                    font-size: to-rem(16px);
+                    line-height: to-rem(26px);
+                    margin-bottom: to-rem(65px);
+                    color: $black-color;
+                }
+                .gbyte-sticky-content__divider {
+                    height: to-rem(1px);
+                    background-color: #c5c5c5;
+                    width: 100%;
+                    margin-bottom: to-rem(60px);
+                }
+                &:last-child {
+                    .gbyte-sticky-content__item-text {
+                        margin-bottom: 0;
+                    }
+                    .gbyte-sticky-content__divider {
+                        display: none;
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .gbyte-sticky-content {
+        background-color: #fafafa;
+        .gbyte-container {
+            width: 100%;
+            max-width: to-rem(1366px);
+            margin: auto;
+            padding: 0;
+            .gbyte-sticky-content__wrapper {
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                flex-direction: column;
+                gap: to-rem(50px);
+            }
+            .gbyte-sticky-content__left {
+                position: static;
+                top: 0;
+                align-self: center;
+                .gbyte-sticky-content__left-title {
+                    font-size: to-rem(16px);
+                    line-height: to-rem(26px);
+                    margin-bottom: to-rem(25px);
+                    color: $primary-color;
+                }
+                .gbyte-sticky-content__image {
+                    width: 100%;
+                    max-width: to-rem(550px);
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+            .gbyte-sticky-content__right {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                max-width: to-rem(565px);
+                margin: 0 auto 0 auto;
+                .gbyte-sticky-content__item {
+                    .gbyte-sticky-content__item-title {
+                        font-size: to-rem(18px);
+                        line-height: to-rem(24px);
+                        margin-bottom: to-rem(50px);
+                        color: $black-color;
+                    }
+                    .gbyte-sticky-content__item-text {
+                        font-size: to-rem(16px);
+                        line-height: to-rem(26px);
+                        margin-bottom: to-rem(40px);
+                        color: $black-color;
+                    }
+                    .gbyte-sticky-content__divider {
+                        height: to-rem(1px);
+                        background-color: #c5c5c5;
+                        width: 100%;
+                        margin-bottom: to-rem(40px);
+                    }
+                    &:last-child {
+                        .gbyte-sticky-content__item-text {
+                            margin-bottom: 0;
+                        }
+                        .gbyte-sticky-content__divider {
+                            display: none;
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

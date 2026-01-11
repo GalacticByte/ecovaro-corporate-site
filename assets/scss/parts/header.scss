@@ -1,0 +1,78 @@
+@use "base" as *;
+/* ==========================================================================
+   1. Header
+   ========================================================================== */
+
+.gbyte-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1030;
+    transition: background-color 0.4s ease-out;
+}
+
+.gbyte-header--hero-scrolling {
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        background-color: rgba($primary-color, 0.3);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(10px);
+        transition: all 0.3s ease-out;
+    }
+}
+
+.gbyte-header--hero-scrolling:has(.navbar-collapse.show)::before,
+.gbyte-header--hero-scrolling:has(.navbar-collapse.collapsing)::before {
+    transition: all 0.3s ease-out;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+.gbyte-header__nav {
+    transition: background-color 0.4s ease-out;
+}
+
+.gbyte-header--scrolled .gbyte-header__nav {
+    background-color: #fff;
+}
+
+.gbyte-header__container {
+    padding: to-rem(8px) to-rem(30px);
+    width: 100%;
+}
+
+.gbyte-header__brand.navbar-brand {
+    position: relative;
+    padding: 0;
+    margin-right: 0;
+}
+
+.gbyte-header__brand .gbyte-header__logo {
+    width: 100%;
+    min-width: to-rem(148px);
+    max-width: to-rem(148px);
+    height: 100%;
+    transition: opacity 0.4s ease-out;
+}
+
+.gbyte-header__logo--color {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.gbyte-header--scrolled .gbyte-header__logo--white {
+    opacity: 0;
+}
+
+.gbyte-header--scrolled .gbyte-header__logo--color {
+    opacity: 1;
+}

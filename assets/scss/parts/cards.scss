@@ -1,0 +1,166 @@
+@use "base" as *;
+
+/* ==========================================================================
+   Cards Section (universal)
+   ========================================================================== */
+
+.gbyte-cards {
+    margin-bottom: to-rem(145px);
+    background-color: $white-color;
+
+    .gbyte-container {
+        width: 100%;
+        margin: auto;
+        padding-left: to-rem(30px);
+        padding-right: to-rem(30px);
+    }
+
+    &__title {
+        color: $black-color;
+        font-size: to-rem(52px);
+        line-height: to-rem(60px);
+        margin-bottom: to-rem(25px);
+    }
+    &__description {
+        font-size: to-rem(18px);
+        line-height: to-rem(26px);
+        margin-bottom: 0;
+        color: $black-color;
+    }
+}
+
+.gbyte-cards__card {
+    border: none;
+
+    .card-img-top {
+        height: auto;
+    }
+    &-icon {
+        display: block;
+        max-width: to-rem(60px);
+        margin: 0 auto to-rem(20px) to-rem(15px);
+    }
+
+    .card-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: to-rem(30px) to-rem(15px);
+    }
+
+    &-title {
+        color: $black-color;
+        font-weight: 500;
+        font-size: to-rem(24px);
+        line-height: to-rem(28px);
+    }
+
+    &-text {
+        color: $black-color;
+        opacity: 0.8;
+        margin-bottom: to-rem(55px);
+    }
+    .gbyte-btn {
+        width: fit-content;
+        svg .b {
+            fill: $white-color;
+        }
+        &:hover svg .b {
+            fill: $white-color;
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .gbyte-cards {
+        margin-bottom: to-rem(0px);
+        background-color: $white-color;
+
+        .gbyte-container {
+            max-width: to-rem(370px);
+            padding-left: to-rem(15px);
+            padding-right: to-rem(15px);
+        }
+
+        &__title {
+            color: $black-color;
+            font-size: to-rem(32px);
+            line-height: to-rem(38px);
+            margin-bottom: to-rem(25px);
+        }
+    }
+    .gbyte-cards__card {
+        .card-body {
+            padding: to-rem(30px) to-rem(15px);
+        }
+
+        &-title {
+            color: $black-color;
+            font-weight: 500;
+            font-size: to-rem(24px);
+            line-height: to-rem(28px);
+        }
+
+        &-text {
+            color: $black-color;
+            opacity: 0.8;
+            margin-bottom: to-rem(25px);
+        }
+    }
+}
+
+/* ==========================================================================
+   Layout Intro
+   ========================================================================== */
+
+.card-img-overlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    .gbyte-cards__card-title {
+        color: $white-color;
+    }
+}
+
+.gbyte-cards--intro {
+    .card-body {
+        .gbyte-cards__card-title {
+            font-size: to-rem(24px);
+            line-height: to-rem(32px);
+            margin-bottom: to-rem(55px);
+        }
+        .gbyte-btn {
+            svg .b {
+                fill: $white-color;
+            }
+            &:hover svg .b {
+                fill: $white-color;
+            }
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .gbyte-cards--intro {
+        .gbyte-container {
+            max-width: 100% !important;
+            .row {
+                align-items: center;
+            }
+            padding: 13px;
+            .card-img-overlay {
+                .gbyte-btn {
+                    padding: 0 to-rem(23px);
+                }
+                .gbyte-cards__card-title {
+                    font-size: to-rem(18px);
+                    line-height: to-rem(26px);
+                    margin-bottom: to-rem(15px);
+                }
+            }
+        }
+        .card-img {
+            height: auto;
+        }
+    }
+}
