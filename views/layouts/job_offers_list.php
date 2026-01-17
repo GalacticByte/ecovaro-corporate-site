@@ -21,6 +21,8 @@ if ( $padding_bottom ) {
     $section_classes .= ' container-padding-bottom';
 }
 
+$title_id = 'job-offers-title-' . ( $section_id ? $section_id : uniqid() );
+
 $args = array(
     'post_type'      => 'job_offer',
     'order'          => 'date',
@@ -33,10 +35,10 @@ $job_offers_query = new WP_Query($args);
 
 ?>
 
-<section class="<?php echo esc_attr( $section_classes ); ?>"<?php echo $section_id ? ' id="' . esc_attr( $section_id ) . '"' : ''; ?>>
+<section class="<?php echo esc_attr( $section_classes ); ?>"<?php echo $section_id ? ' id="' . esc_attr( $section_id ) . '"' : ''; ?> aria-labelledby="<?php echo esc_attr( $title_id ); ?>">
     <div class="gbyte-container">
         <?php if ( $list_title ) : ?>
-            <h2 class="gbyte-job-offers__title"><?php echo cf_text( $list_title ); ?></h2>
+            <h2 id="<?php echo esc_attr( $title_id ); ?>" class="gbyte-job-offers__title"><?php echo cf_text( $list_title ); ?></h2>
         <?php endif; ?>
 
         <div class="row g-4 justify-content-start">
@@ -45,19 +47,21 @@ $job_offers_query = new WP_Query($args);
 
 
                     $excerpt = carbon_get_the_post_meta( 'job_offer_excerpt' );
-                    $image_url = get_the_post_thumbnail_url( get_the_ID(), 'large' ) ?: get_template_directory_uri() . '/assets/images/placeholder.jpg';
+                    $has_thumbnail = has_post_thumbnail();
+                    $image_url = $has_thumbnail ? get_the_post_thumbnail_url( get_the_ID(), 'large' ) : get_template_directory_uri() . '/assets/images/placeholder.jpg';
+                    $image_alt = $has_thumbnail ? get_the_title() : '';
                 ?>
                     <div class="col-md-6 col-lg-4">
                         <div class="card h-100 gbyte-job-offers__card">
-                            <img src="<?php echo esc_url($image_url); ?>" class="card-img-top gbyte-job-offers__card-image" alt="<?php the_title_attribute(); ?>">
+                            <img src="<?php echo esc_url($image_url); ?>" class="card-img-top gbyte-job-offers__card-image" alt="<?php echo esc_attr( $image_alt ); ?>">
                             <div class="card-body gbyte-job-offers__card-body">
                                 <h3 class="card-title gbyte-job-offers__card-title"><?php the_title(); ?></h3>
                                 <?php if ($excerpt): ?>
                                     <p class="card-text gbyte-job-offers__card-text"><?php echo esc_html($excerpt); ?></p>
                                 <?php endif; ?>
-                                <a href="<?php the_permalink(); ?>" class="btn gbyte-btn bg-green mt-auto">
+                                <a href="<?php the_permalink(); ?>" class="btn gbyte-btn bg-green mt-auto" aria-label="<?php echo esc_attr( sprintf( __( 'Dowiedz się więcej o stanowisku: %s', 'ecovaro' ), get_the_title() ) ); ?>">
                                     <span><?php _e('Dowiedz się więcej', 'ecovaro'); ?></span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="arrow" width="16" height="16" viewBox="0 0 16 16"><defs><style>.a{fill:none;}.b{fill:#ffffff;fill-rule:evenodd;opacity:0.54;}</style></defs><rect class="a" width="16" height="16"/><path class="b" d="M12,5.25H2.85l4.2-4.2L6,0,0,6l6,6,1.05-1.05-4.2-4.2H12V5.25Z" transform="translate(14.485 14) rotate(180)"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="arrow" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><defs><style>.a{fill:none;}.b{fill:#ffffff;fill-rule:evenodd;opacity:0.54;}</style></defs><rect class="a" width="16" height="16"/><path class="b" d="M12,5.25H2.85l4.2-4.2L6,0,0,6l6,6,1.05-1.05-4.2-4.2H12V5.25Z" transform="translate(14.485 14) rotate(180)"/></svg>
                                 </a>
                             </div>
                         </div>

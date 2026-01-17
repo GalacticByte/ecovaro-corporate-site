@@ -251,7 +251,14 @@ section[id] {
   font-size: 1.5rem;
   line-height: 1.75rem;
   text-align: left;
-  margin-bottom: 3.4375rem;
+  margin-bottom: 1.5625rem;
+}
+.gbyte-job-offers__card .gbyte-job-offers__card-text {
+  color: #00040c;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  text-align: left;
+  margin-bottom: 1.5625rem;
 }
 .gbyte-job-offers__title {
   font-size: 3.25rem;
@@ -281,6 +288,11 @@ section[id] {
 }
 .gbyte-job-offers__item:hover .gbyte-job-offers__item-arrow .arrow .b {
   opacity: 1;
+}
+.gbyte-job-offers__item:focus-visible {
+  outline: 2px solid #00040c;
+  outline-offset: -2px;
+  background-color: #f1f0f5;
 }
 .gbyte-job-offers__item-title {
   font-size: 1.5rem;

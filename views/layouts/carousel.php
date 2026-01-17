@@ -30,12 +30,12 @@ if ( $padding_bottom ) {
             <?php endif; ?>
 
             <div class="gbyte-carousel__nav">
-                <div class="gbyte-carousel__nav-btn gbyte-carousel__nav-btn--prev">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><defs><style>.a{fill:none;}.b{fill:#00040c;fill-rule:evenodd;}</style></defs><rect class="a" width="24" height="24"/><path class="b" d="M15.4,7.4,14,6,8,12l6,6,1.4-1.4L10.8,12Z"/></svg>
-                </div>
-                <div class="gbyte-carousel__nav-btn gbyte-carousel__nav-btn--next">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><defs><style>.a{fill:none;}.b{fill:#00040c;fill-rule:evenodd;}</style></defs><rect class="a" width="24" height="24"/><path class="b" d="M15.4,7.4,14,6,8,12l6,6,1.4-1.4L10.8,12Z"/></svg>
-                </div>
+                <button type="button" class="gbyte-carousel__nav-btn gbyte-carousel__nav-btn--prev" aria-label="Poprzedni slajd">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><defs><style>.a{fill:none;}.b{fill:#00040c;fill-rule:evenodd;}</style></defs><rect class="a" width="24" height="24"/><path class="b" d="M15.4,7.4,14,6,8,12l6,6,1.4-1.4L10.8,12Z"/></svg>
+                </button>
+                <button type="button" class="gbyte-carousel__nav-btn gbyte-carousel__nav-btn--next" aria-label="Następny slajd">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><defs><style>.a{fill:none;}.b{fill:#00040c;fill-rule:evenodd;}</style></defs><rect class="a" width="24" height="24"/><path class="b" d="M15.4,7.4,14,6,8,12l6,6,1.4-1.4L10.8,12Z"/></svg>
+                </button>
             </div>
         </div>
 
@@ -55,10 +55,17 @@ if ( $padding_bottom ) {
                                     'sizes' => $sizes,
                                     'loading' => 'lazy'
                                 ) );
+
+                                // Pobranie tekstu alternatywnego dla celów dostępności linku
+                                $alt_text = get_post_meta( $image_id, '_wp_attachment_image_alt', true );
                                 ?>
                                  <div class="swiper-slide">
                                     <?php if ( $link_url ) : ?>
-                                        <a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo $image_html; ?></a>
+                                        <?php
+                                        $rel_attr = ( '_blank' === $link_target ) ? ' rel="noopener noreferrer"' : '';
+                                        $aria_label = ( '_blank' === $link_target ) ? ' aria-label="' . esc_attr( ( $alt_text ? $alt_text : __( 'Link', 'ecovaro' ) ) . ' ' . __( '(otwiera się w nowym oknie)', 'ecovaro' ) ) . '"' : '';
+                                        ?>
+                                        <a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"<?php echo $rel_attr . $aria_label; ?>><?php echo $image_html; ?></a>
                                     <?php else : ?>
                                         <?php echo $image_html; ?>
                                     <?php endif; ?>
@@ -74,9 +81,13 @@ if ( $padding_bottom ) {
 
         <?php if ( $btn_text && $btn_url ) : ?>
             <div class="gbyte-carousel__footer">
-                <a href="<?php echo esc_url( $btn_url ); ?>" target="<?php echo esc_attr( $btn_target ); ?>" class="btn gbyte-btn bg-green">
+                <?php
+                $btn_rel_attr = ( '_blank' === $btn_target ) ? ' rel="noopener noreferrer"' : '';
+                $btn_aria_label = ( '_blank' === $btn_target ) ? ' aria-label="' . esc_attr( $btn_text . ' ' . __( '(otwiera się w nowym oknie)', 'ecovaro' ) ) . '"' : '';
+                ?>
+                <a href="<?php echo esc_url( $btn_url ); ?>" target="<?php echo esc_attr( $btn_target ); ?>" class="btn gbyte-btn bg-green"<?php echo $btn_rel_attr . $btn_aria_label; ?>>
                     <span><?php echo esc_html( $btn_text ); ?></span>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="arrow" width="16" height="16" viewBox="0 0 16 16"><defs><style>.a{fill:none;}.b{fill:#015AAB;fill-rule:evenodd;opacity:0.54;}</style></defs><rect class="a" width="16" height="16"/><path class="b" d="M12,5.25H2.85l4.2-4.2L6,0,0,6l6,6,1.05-1.05-4.2-4.2H12V5.25Z" transform="translate(14.485 14) rotate(180)"/></svg></a>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="arrow" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><defs><style>.a{fill:none;}.b{fill:#015AAB;fill-rule:evenodd;opacity:0.54;}</style></defs><rect class="a" width="16" height="16"/><path class="b" d="M12,5.25H2.85l4.2-4.2L6,0,0,6l6,6,1.05-1.05-4.2-4.2H12V5.25Z" transform="translate(14.485 14) rotate(180)"/></svg></a>
             </div>
         <?php endif; ?>
     </div>

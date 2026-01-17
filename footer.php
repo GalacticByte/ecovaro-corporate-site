@@ -9,8 +9,8 @@
 						$footer_logo_id = carbon_get_theme_option( 'global_footer_logo' );
 						$footer_logo_url = $footer_logo_id ? wp_get_attachment_image_url( $footer_logo_id, 'full' ) : get_template_directory_uri() . '/assets/images/strona-glowna/logo-bottom.svg';
 						?>
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-							<img src="<?php echo esc_url( $footer_logo_url ); ?>" alt="<?php bloginfo( 'name' ); ?> Logo">
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" aria-label="<?php echo esc_attr( get_bloginfo( 'name' ) . ' - ' . __( 'Strona główna', 'ecovaro' ) ); ?>">
+							<img src="<?php echo esc_url( $footer_logo_url ); ?>" alt="" aria-hidden="true">
 						</a>
 					</div>
 
@@ -25,8 +25,13 @@
 								$social_icon_url = $social_icon_id ? wp_get_attachment_image_url( $social_icon_id, 'full' ) : '';
 								?>
 								<?php if ( $social_link && $social_icon_url ) : ?>
-									<a href="<?php echo esc_url( $social_link ); ?>" target="_blank" rel="noopener noreferrer">
-										<img src="<?php echo esc_url( $social_icon_url ); ?>" alt="Social Icon">
+									<?php
+									$host = parse_url( $social_link, PHP_URL_HOST );
+									$host = str_ireplace( 'www.', '', $host );
+									$social_label = ( $host ? $host : __( 'Social media', 'ecovaro' ) ) . ' ' . __( '(otwiera się w nowym oknie)', 'ecovaro' );
+									?>
+									<a href="<?php echo esc_url( $social_link ); ?>" target="_blank" rel="noopener noreferrer" aria-label="<?php echo esc_attr( $social_label ); ?>">
+										<img src="<?php echo esc_url( $social_icon_url ); ?>" alt="" aria-hidden="true">
 									</a>
 								<?php endif; ?>
 							<?php endforeach; ?>
@@ -89,8 +94,13 @@
 					$privacy_link = $privacy_entries ? $privacy_entries[0] : null;
 					// Check if the link has been defined (has a URL and a title)
 					if ( $privacy_link && ! empty( $privacy_link['url'] ) && ! empty( $privacy_link['title'] ) ) : ?>
+						<?php
+						$p_target = $privacy_link['target'] ?: '_self';
+						$p_rel = ( '_blank' === $p_target ) ? ' rel="noopener noreferrer"' : '';
+						$p_label = ( '_blank' === $p_target ) ? ' aria-label="' . esc_attr( $privacy_link['title'] . ' ' . __( '(otwiera się w nowym oknie)', 'ecovaro' ) ) . '"' : '';
+						?>
 						<div class="gbyte-footer__bottom-item">
-							<p><a href="<?php echo esc_url( $privacy_link['url'] ); ?>" target="<?php echo esc_attr( $privacy_link['target'] ?: '_self' ); ?>"><?php echo esc_html( $privacy_link['title'] ); ?></a></p>
+							<p><a href="<?php echo esc_url( $privacy_link['url'] ); ?>" target="<?php echo esc_attr( $p_target ); ?>"<?php echo $p_rel . $p_label; ?>><?php echo esc_html( $privacy_link['title'] ); ?></a></p>
 						</div>
 					<?php endif; ?>
 
@@ -100,8 +110,13 @@
 					$cookie_entries = carbon_get_theme_option( 'global_cookie_link' );
 					$cookies_link = $cookie_entries ? $cookie_entries[0] : null;
 					if ( $cookies_link && ! empty( $cookies_link['url'] ) && ! empty( $cookies_link['title'] ) ) : ?>
+						<?php
+						$c_target = $cookies_link['target'] ?: '_self';
+						$c_rel = ( '_blank' === $c_target ) ? ' rel="noopener noreferrer"' : '';
+						$c_label = ( '_blank' === $c_target ) ? ' aria-label="' . esc_attr( $cookies_link['title'] . ' ' . __( '(otwiera się w nowym oknie)', 'ecovaro' ) ) . '"' : '';
+						?>
 						<div class="gbyte-footer__bottom-item">
-							<p><a href="<?php echo esc_url( $cookies_link['url'] ); ?>" target="<?php echo esc_attr( $cookies_link['target'] ?: '_self' ); ?>"><?php echo esc_html( $cookies_link['title'] ); ?></a></p>
+							<p><a href="<?php echo esc_url( $cookies_link['url'] ); ?>" target="<?php echo esc_attr( $c_target ); ?>"<?php echo $c_rel . $c_label; ?>><?php echo esc_html( $cookies_link['title'] ); ?></a></p>
 						</div>
 					<?php endif; ?>
 

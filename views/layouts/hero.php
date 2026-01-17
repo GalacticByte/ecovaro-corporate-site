@@ -44,7 +44,7 @@ $mobile_image_class  = 'gbyte-show-on-tablet--flex';
 
 <section class="<?php echo esc_attr( $section_classes ); ?>">
     <?php if ( 'default' === $layout_type || 'extended' === $layout_type ) : ?>
-        <div class="gbyte-hero__background">
+        <div class="gbyte-hero__background" aria-hidden="true">
             <?php if ( 'video' === $bg_type ) : ?>
                 <?php if ( $bg_video_desktop_id ) : ?>
                     <video playsinline autoplay muted loop class="gbyte-hero__background-video d-none d-lg-block">
@@ -88,9 +88,12 @@ $mobile_image_class  = 'gbyte-show-on-tablet--flex';
                 $default_banner_url = get_template_directory_uri() . '/assets/images/nasze-marki/nasze-marki-baner-01b.png';
                 $banner_desktop_url = $banner_desktop_id ? wp_get_attachment_image_url( $banner_desktop_id, 'full' ) : $default_banner_url;
                 $banner_mobile_url  = $banner_mobile_id ? wp_get_attachment_image_url( $banner_mobile_id, 'full' ) : $banner_desktop_url;
+
+                $banner_desktop_alt = $banner_desktop_id ? get_post_meta( $banner_desktop_id, '_wp_attachment_image_alt', true ) : '';
+                $banner_mobile_alt  = $banner_mobile_id ? get_post_meta( $banner_mobile_id, '_wp_attachment_image_alt', true ) : $banner_desktop_alt;
                 ?>
-                <img src="<?php echo esc_url( $banner_desktop_url ); ?>" alt="Baner" class="<?php echo esc_attr( $desktop_image_class ); ?>">
-                <img src="<?php echo esc_url( $banner_mobile_url ); ?>" alt="Baner" class="<?php echo esc_attr( $mobile_image_class ); ?>">
+                <img src="<?php echo esc_url( $banner_desktop_url ); ?>" alt="<?php echo esc_attr( $banner_desktop_alt ); ?>" class="<?php echo esc_attr( $desktop_image_class ); ?>">
+                <img src="<?php echo esc_url( $banner_mobile_url ); ?>" alt="<?php echo esc_attr( $banner_mobile_alt ); ?>" class="<?php echo esc_attr( $mobile_image_class ); ?>">
             <?php endif; ?>
         </div>
 
@@ -111,7 +114,7 @@ $mobile_image_class  = 'gbyte-show-on-tablet--flex';
                                     </span>
                                 <?php endif; ?>
                                 <span><?php echo esc_html( $scroll_text ); ?></span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="arrow" width="16" height="16" viewBox="0 0 16 16"><defs><style>.a{fill:none;}.b{fill:#ffffff;fill-rule:evenodd;opacity:0.54;}</style></defs><rect class="a" width="16" height="16"/><path class="b" d="M6,0,4.95,1.05,9.15,5.25H0v1.5H9.15L4.95,10.95,6,12l6-6Z" transform="translate(2 2)"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="arrow" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><defs><style>.a{fill:none;}.b{fill:#ffffff;fill-rule:evenodd;opacity:0.54;}</style></defs><rect class="a" width="16" height="16"/><path class="b" d="M6,0,4.95,1.05,9.15,5.25H0v1.5H9.15L4.95,10.95,6,12l6-6Z" transform="translate(2 2)"/></svg>
                             </a>
                         <?php endif; ?>
 

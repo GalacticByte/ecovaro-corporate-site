@@ -93,9 +93,16 @@ if ( $padding_bottom ) {
                                     <p class="card-text gbyte-cards__card-text"><?php echo cf_the_content_br( $card_desc ); ?></p>
                                 <?php endif; ?>
                                 <?php if ( $link_url ) : ?>
-                                    <a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>" class="btn gbyte-btn bg-green">
+                                    <?php
+                                    $rel_attr = ( '_blank' === $link_target ) ? ' rel="noopener noreferrer"' : '';
+                                    $aria_label_text = $link_text . ' - ' . strip_tags( $title );
+                                    if ( '_blank' === $link_target ) {
+                                        $aria_label_text .= ' ' . __( '(otwiera się w nowym oknie)', 'ecovaro' );
+                                    }
+                                    ?>
+                                    <a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>" class="btn gbyte-btn bg-green" aria-label="<?php echo esc_attr( $aria_label_text ); ?>"<?php echo $rel_attr; ?>>
                                         <span><?php echo esc_html( $link_text ); ?> </span>
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="arrow" width="16" height="16" viewBox="0 0 16 16"><defs><style>.a{fill:none;}.b{fill: #ffffff;fill-rule:evenodd;opacity:0.54;}</style></defs><rect class="a" width="16" height="16"/><path class="b" d="M12,5.25H2.85l4.2-4.2L6,0,0,6l6,6,1.05-1.05-4.2-4.2H12V5.25Z" transform="translate(14.485 14) rotate(180)"/></svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="arrow" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><defs><style>.a{fill:none;}.b{fill: #ffffff;fill-rule:evenodd;opacity:0.54;}</style></defs><rect class="a" width="16" height="16"/><path class="b" d="M12,5.25H2.85l4.2-4.2L6,0,0,6l6,6,1.05-1.05-4.2-4.2H12V5.25Z" transform="translate(14.485 14) rotate(180)"/></svg>
                                     </a>
                                 <?php endif; ?>
                             </div>
@@ -121,9 +128,16 @@ if ( $padding_bottom ) {
                                         <p class="card-text gbyte-cards__card-text mb-2"><?php echo cf_the_content_br( $card_desc ); ?></p>
                                     <?php endif; ?>
                                     <?php if ( $link_url ) : ?>
-                                        <a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>" class="btn gbyte-btn bg-white mt-2">
+                                        <?php
+                                        $rel_attr = ( '_blank' === $link_target ) ? ' rel="noopener noreferrer"' : '';
+                                        $aria_label_text = $link_text . ' - ' . strip_tags( $title );
+                                        if ( '_blank' === $link_target ) {
+                                            $aria_label_text .= ' ' . __( '(otwiera się w nowym oknie)', 'ecovaro' );
+                                        }
+                                        ?>
+                                        <a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>" class="btn gbyte-btn bg-white mt-2" aria-label="<?php echo esc_attr( $aria_label_text ); ?>"<?php echo $rel_attr; ?>>
                                             <span><?php echo esc_html( $link_text ); ?></span>
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="arrow" width="16" height="16" viewBox="0 0 16 16"><defs><style>.a{fill:none;}.b{fill: #ffffff;fill-rule:evenodd;opacity:0.54;}</style></defs><rect class="a" width="16" height="16"/><path class="b" d="M12,5.25H2.85l4.2-4.2L6,0,0,6l6,6,1.05-1.05-4.2-4.2H12V5.25Z" transform="translate(14.485 14) rotate(180)"/></svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="arrow" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><defs><style>.a{fill:none;}.b{fill: #015AAB;fill-rule:evenodd;opacity:0.54;}</style></defs><rect class="a" width="16" height="16"/><path class="b" d="M12,5.25H2.85l4.2-4.2L6,0,0,6l6,6,1.05-1.05-4.2-4.2H12V5.25Z" transform="translate(14.485 14) rotate(180)"/></svg>
                                         </a>
                                     <?php endif; ?>
                                 </div>

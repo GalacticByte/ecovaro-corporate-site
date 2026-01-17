@@ -80,7 +80,11 @@ if ( $padding_bottom ) {
                                         <h3 class="gbyte-contact-info__box-subtitle"><?php echo cf_text( $subtitle ); ?></h3>
                                     <?php endif; ?>
                                     <?php if ( $url && $text ) : ?>
-                                        <p><a href="<?php echo esc_url( $url ); ?>" target="<?php echo esc_attr( $target ); ?>"><?php echo esc_html( $text ); ?></a></p>
+                                        <?php
+                                        $rel_attr = ( '_blank' === $target ) ? ' rel="noopener noreferrer"' : '';
+                                        $aria_label = ( '_blank' === $target ) ? ' aria-label="' . esc_attr( $text . ' ' . __( '(otwiera się w nowym oknie)', 'ecovaro' ) ) . '"' : '';
+                                        ?>
+                                        <p><a href="<?php echo esc_url( $url ); ?>" target="<?php echo esc_attr( $target ); ?>"<?php echo $rel_attr . $aria_label; ?>><?php echo esc_html( $text ); ?></a></p>
                                     <?php endif; ?>
                                 </div>
                             <?php endforeach; ?>
@@ -106,7 +110,11 @@ if ( $padding_bottom ) {
                                         <h3 class="gbyte-contact-info__box-subtitle"><?php echo cf_text( $subtitle ); ?></h3>
                                     <?php endif; ?>
                                     <?php if ( $url && $text ) : ?>
-                                        <p><a href="<?php echo esc_url( $url ); ?>" target="<?php echo esc_attr( $target ); ?>"><?php echo esc_html( $text ); ?></a></p>
+                                        <?php
+                                        $rel_attr = ( '_blank' === $target ) ? ' rel="noopener noreferrer"' : '';
+                                        $aria_label = ( '_blank' === $target ) ? ' aria-label="' . esc_attr( $text . ' ' . __( '(otwiera się w nowym oknie)', 'ecovaro' ) ) . '"' : '';
+                                        ?>
+                                        <p><a href="<?php echo esc_url( $url ); ?>" target="<?php echo esc_attr( $target ); ?>"<?php echo $rel_attr . $aria_label; ?>><?php echo esc_html( $text ); ?></a></p>
                                     <?php endif; ?>
                                 </div>
                             <?php endforeach; ?>

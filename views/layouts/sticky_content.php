@@ -19,16 +19,18 @@ if ( $padding_top ) {
 if ( $padding_bottom ) {
     $section_classes .= ' container-padding-bottom';
 }
+
+$title_id = 'sticky-title-' . ( $section_id ? $section_id : uniqid() );
 ?>
 
-<section class="<?php echo esc_attr( $section_classes ); ?>"<?php echo $section_id ? ' id="' . esc_attr( $section_id ) . '"' : ''; ?>>
+<section class="<?php echo esc_attr( $section_classes ); ?>"<?php echo $section_id ? ' id="' . esc_attr( $section_id ) . '"' : ''; ?><?php echo $left_title ? ' aria-labelledby="' . esc_attr( $title_id ) . '"' : ''; ?>>
     <div class="gbyte-container">
         <div class="gbyte-sticky-content__wrapper">
 
             <!-- Left column (Sticky) -->
             <div class="gbyte-sticky-content__left">
                 <?php if ( $left_title ) : ?>
-                    <p class="gbyte-sticky-content__left-title"><?php echo cf_the_content_br( $left_title ); ?></p>
+                    <h2 id="<?php echo esc_attr( $title_id ); ?>" class="gbyte-sticky-content__left-title"><?php echo cf_the_content_br( $left_title ); ?></h2>
                 <?php endif; ?>
 
                 <?php if ( $left_image_id ) : ?>
@@ -38,7 +40,7 @@ if ( $padding_bottom ) {
                     // Fallback image
                     $fallback_img_src = get_template_directory_uri() . '/assets/images/badania/badania-rozwoj-img-02.png';
                     ?>
-                    <img src="<?php echo esc_url( $fallback_img_src ); ?>" class="gbyte-sticky-content__image" alt="Default image" loading="lazy">
+                    <img src="<?php echo esc_url( $fallback_img_src ); ?>" class="gbyte-sticky-content__image" alt="" loading="lazy">
                 <?php endif; ?>
             </div>
 

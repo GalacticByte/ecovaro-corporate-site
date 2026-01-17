@@ -15,10 +15,10 @@
 
 
 	<header id="masthead" class="gbyte-header fixed-top">
-		<nav id="gbyte-navbar" class="navbar navbar-expand-lg gbyte-header__nav">
+		<nav id="gbyte-navbar" class="navbar navbar-expand-lg gbyte-header__nav" aria-label="<?php esc_attr_e( 'Główna nawigacja', 'ecovaro' ); ?>">
 			<div class="container-fluid gbyte-header__container">
 				<div class="gbyte-header__brand navbar-brand">
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" aria-label="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
 						<?php
 						$logo_white_id = carbon_get_theme_option( 'global_logo_white' );
 						$logo_color_id = carbon_get_theme_option( 'global_logo_color' );
@@ -31,8 +31,8 @@
 							? wp_get_attachment_image_url( $logo_color_id, 'full' )
 							: get_stylesheet_directory_uri() . '/assets/images/strona-glowna/logo-color.svg';
 						?>
-						<img src="<?php echo esc_url( $logo_white_url ); ?>" alt="<?php bloginfo( 'name' ); ?> Logo White" class="gbyte-header__logo gbyte-header__logo--white">
-						<img src="<?php echo esc_url( $logo_color_url ); ?>" alt="<?php bloginfo( 'name' ); ?> Logo Color" class="gbyte-header__logo gbyte-header__logo--color">
+						<img src="<?php echo esc_url( $logo_white_url ); ?>" alt="" class="gbyte-header__logo gbyte-header__logo--white" aria-hidden="true">
+						<img src="<?php echo esc_url( $logo_color_url ); ?>" alt="" class="gbyte-header__logo gbyte-header__logo--color" aria-hidden="true">
 					</a>
 				</div>
 

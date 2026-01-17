@@ -236,13 +236,10 @@ section[id] {
 }
 /* 2.2. Bootstrap styles reset */
 .gbyte-header__menu .nav-link:focus,
-.gbyte-header__menu .nav-link:focus-visible,
 .gbyte-header__menu .nav-link:active,
 .gbyte-header__menu .dropdown-item:focus,
-.gbyte-header__menu .dropdown-item:focus-visible,
 .gbyte-header__menu .dropdown-item:active {
   box-shadow: none !important;
-  outline: none !important;
   background-color: transparent !important;
 }
 
@@ -270,6 +267,11 @@ section[id] {
   padding: 0 0;
   display: block;
   transition: opacity 0.3s ease, color 0.3s ease, background-color 0.3s ease;
+}
+.gbyte-header__menu .nav-link:focus, .gbyte-header__menu .nav-link:active, .gbyte-header__menu .nav-link:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+  opacity: 1;
 }
 
 .gbyte-header__menu .nav-link.show {
@@ -306,6 +308,12 @@ section[id] {
 .gbyte-header.gbyte-header--scrolled .gbyte-header__menu .nav-link {
   color: #00040c;
   opacity: 1;
+}
+
+.gbyte-header.gbyte-header--scrolled .gbyte-header__menu .nav-link:focus,
+.gbyte-header.gbyte-header--scrolled .gbyte-header__menu .nav-link:active,
+.gbyte-header.gbyte-header--scrolled .gbyte-header__menu .nav-link:focus-visible {
+  outline-color: #00040c;
 }
 
 .gbyte-header__menu .nav-link:hover,
@@ -365,6 +373,14 @@ section[id] {
   color: #4db04b;
   background-color: transparent !important;
   text-decoration: none;
+}
+
+.gbyte-header__menu .dropdown-item:focus,
+.gbyte-header__menu .dropdown-item:active,
+.gbyte-header__menu .dropdown-item:focus-visible {
+  outline: 2px solid #00040c;
+  outline-offset: -2px;
+  color: #4db04b;
 }
 
 /* Corrected styles for the dropdown item with an icon */
@@ -438,6 +454,17 @@ section[id] {
 
 .navbar-toggler:focus {
   box-shadow: none;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.gbyte-header.gbyte-header--scrolled .navbar-toggler:focus,
+.gbyte-header.gbyte-header--scrolled .navbar-toggler:focus-visible {
+  outline-color: #00040c;
 }
 
 .navbar-toggler .navbar-toggler-icon {

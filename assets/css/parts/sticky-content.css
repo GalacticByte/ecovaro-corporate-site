@@ -283,6 +283,18 @@ section[id] {
   margin-bottom: 4.0625rem;
   color: #00040c;
 }
+.gbyte-sticky-content .gbyte-container .gbyte-sticky-content__right .gbyte-sticky-content__item .gbyte-sticky-content__item-text a {
+  color: #1f6f3f;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+.gbyte-sticky-content .gbyte-container .gbyte-sticky-content__right .gbyte-sticky-content__item .gbyte-sticky-content__item-text a:hover {
+  text-decoration: none;
+}
+.gbyte-sticky-content .gbyte-container .gbyte-sticky-content__right .gbyte-sticky-content__item .gbyte-sticky-content__item-text a:focus-visible {
+  outline: 2px solid #00040c;
+  outline-offset: 2px;
+}
 .gbyte-sticky-content .gbyte-container .gbyte-sticky-content__right .gbyte-sticky-content__item .gbyte-sticky-content__divider {
   height: 0.0625rem;
   background-color: #c5c5c5;

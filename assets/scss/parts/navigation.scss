@@ -5,13 +5,10 @@
 
 /* 2.2. Bootstrap styles reset */
 .gbyte-header__menu .nav-link:focus,
-.gbyte-header__menu .nav-link:focus-visible,
 .gbyte-header__menu .nav-link:active,
 .gbyte-header__menu .dropdown-item:focus,
-.gbyte-header__menu .dropdown-item:focus-visible,
 .gbyte-header__menu .dropdown-item:active {
     box-shadow: none !important;
-    outline: none !important;
     background-color: transparent !important;
 }
 
@@ -39,7 +36,18 @@
     padding: 0 0;
     // padding: to-rem(10px) 0;
     display: block;
-    transition: opacity 0.3s ease, color 0.3s ease, background-color 0.3s ease;
+    transition:
+        opacity 0.3s ease,
+        color 0.3s ease,
+        background-color 0.3s ease;
+
+    &:focus,
+    &:active,
+    &:focus-visible {
+        outline: 2px solid $white-color;
+        outline-offset: 2px;
+        opacity: 1;
+    }
 }
 
 .gbyte-header__menu .nav-link.show {
@@ -57,7 +65,10 @@
     vertical-align: -0.1em;
     border: none;
     /* Resets the default Bootstrap arrow */
-    transition: opacity 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+    transition:
+        opacity 0.3s ease,
+        background-color 0.3s ease,
+        transform 0.3s ease;
     -webkit-mask-size: contain;
     mask-size: contain;
     -webkit-mask-repeat: no-repeat;
@@ -76,6 +87,12 @@
 .gbyte-header.gbyte-header--scrolled .gbyte-header__menu .nav-link {
     color: $black-color;
     opacity: 1;
+}
+
+.gbyte-header.gbyte-header--scrolled .gbyte-header__menu .nav-link:focus,
+.gbyte-header.gbyte-header--scrolled .gbyte-header__menu .nav-link:active,
+.gbyte-header.gbyte-header--scrolled .gbyte-header__menu .nav-link:focus-visible {
+    outline-color: $black-color;
 }
 
 .gbyte-header__menu .nav-link:hover,
@@ -125,7 +142,9 @@
     color: $black-color;
     opacity: 1;
     white-space: nowrap;
-    transition: background-color 0.3s ease, opacity 0.3s ease;
+    transition:
+        background-color 0.3s ease,
+        opacity 0.3s ease;
 }
 
 .gbyte-header__menu .dropdown-item:hover,
@@ -135,6 +154,14 @@
     color: $second-color;
     background-color: transparent !important;
     text-decoration: none;
+}
+
+.gbyte-header__menu .dropdown-item:focus,
+.gbyte-header__menu .dropdown-item:active,
+.gbyte-header__menu .dropdown-item:focus-visible {
+    outline: 2px solid $black-color;
+    outline-offset: -2px;
+    color: $second-color;
 }
 
 /* Corrected styles for the dropdown item with an icon */
@@ -161,7 +188,10 @@
         padding: to-rem(20px);
         pointer-events: none;
         transform: translateY(to-rem(10px));
-        transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out, visibility 0.2s;
+        transition:
+            opacity 0.2s ease-in-out,
+            transform 0.2s ease-in-out,
+            visibility 0.2s;
     }
 
     .gbyte-header__menu .dropdown-menu .dropdown {
@@ -215,6 +245,17 @@
 
 .navbar-toggler:focus {
     box-shadow: none;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:focus-visible {
+    outline: 2px solid $white-color;
+    outline-offset: 2px;
+}
+
+.gbyte-header.gbyte-header--scrolled .navbar-toggler:focus,
+.gbyte-header.gbyte-header--scrolled .navbar-toggler:focus-visible {
+    outline-color: $black-color;
 }
 
 .navbar-toggler .navbar-toggler-icon {
@@ -333,7 +374,10 @@
         max-height: 0;
         opacity: 0;
         visibility: hidden;
-        transition: max-height 0.35s ease-out, opacity 0.35s ease-out, visibility 0.35s;
+        transition:
+            max-height 0.35s ease-out,
+            opacity 0.35s ease-out,
+            visibility 0.35s;
     }
 
     /* When Bootstrap adds the .show class */
