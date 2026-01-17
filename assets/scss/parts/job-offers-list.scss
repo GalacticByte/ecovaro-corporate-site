@@ -20,7 +20,14 @@
             font-size: to-rem(24px);
             line-height: to-rem(28px);
             text-align: left;
-            margin-bottom: to-rem(55px);
+            margin-bottom: to-rem(25px);
+        }
+        .gbyte-job-offers__card-text {
+            color: $black-color;
+            font-size: to-rem(18px);
+            line-height: to-rem(28px);
+            text-align: left;
+            margin-bottom: to-rem(25px);
         }
     }
     &__title {
@@ -55,6 +62,12 @@
             .gbyte-job-offers__item-arrow .arrow .b {
                 opacity: 1;
             }
+        }
+
+        &:focus-visible {
+            outline: 2px solid $black-color;
+            outline-offset: -2px;
+            background-color: #f1f0f5;
         }
     }
 

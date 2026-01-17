@@ -242,6 +242,23 @@ section[id] {
 /* ==========================================================================
    1. Header
    ========================================================================== */
+.skip-link {
+  position: absolute;
+  top: -9999px;
+  left: 0;
+  background-color: #fff;
+  color: #00040c;
+  padding: 0.9375rem 1.25rem;
+  z-index: 99999;
+  text-decoration: none;
+  font-weight: bold;
+  border: 2px solid #1f6f3f;
+}
+.skip-link:focus {
+  top: 0;
+  left: 0;
+}
+
 .gbyte-header {
   position: fixed;
   top: 0;
@@ -290,6 +307,11 @@ section[id] {
   padding: 0;
   margin-right: 0;
 }
+.gbyte-header__brand.navbar-brand a:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
 
 .gbyte-header__brand .gbyte-header__logo {
   width: 100%;
@@ -314,6 +336,11 @@ section[id] {
   opacity: 1;
 }
 
+.navbar-toggler:focus-visible {
+  outline: 2px solid #00040c;
+  outline-offset: 2px;
+}
+
 /* ==========================================================================
    Main SCSS file for the Ecovaro theme
    This file imports all modules and is compiled into /assets/css/style.css
@@ -323,13 +350,10 @@ section[id] {
    ========================================================================== */
 /* 2.2. Bootstrap styles reset */
 .gbyte-header__menu .nav-link:focus,
-.gbyte-header__menu .nav-link:focus-visible,
 .gbyte-header__menu .nav-link:active,
 .gbyte-header__menu .dropdown-item:focus,
-.gbyte-header__menu .dropdown-item:focus-visible,
 .gbyte-header__menu .dropdown-item:active {
   box-shadow: none !important;
-  outline: none !important;
   background-color: transparent !important;
 }
 
@@ -357,6 +381,11 @@ section[id] {
   padding: 0 0;
   display: block;
   transition: opacity 0.3s ease, color 0.3s ease, background-color 0.3s ease;
+}
+.gbyte-header__menu .nav-link:focus, .gbyte-header__menu .nav-link:active, .gbyte-header__menu .nav-link:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+  opacity: 1;
 }
 
 .gbyte-header__menu .nav-link.show {
@@ -393,6 +422,12 @@ section[id] {
 .gbyte-header.gbyte-header--scrolled .gbyte-header__menu .nav-link {
   color: #00040c;
   opacity: 1;
+}
+
+.gbyte-header.gbyte-header--scrolled .gbyte-header__menu .nav-link:focus,
+.gbyte-header.gbyte-header--scrolled .gbyte-header__menu .nav-link:active,
+.gbyte-header.gbyte-header--scrolled .gbyte-header__menu .nav-link:focus-visible {
+  outline-color: #00040c;
 }
 
 .gbyte-header__menu .nav-link:hover,
@@ -452,6 +487,14 @@ section[id] {
   color: #4db04b;
   background-color: transparent !important;
   text-decoration: none;
+}
+
+.gbyte-header__menu .dropdown-item:focus,
+.gbyte-header__menu .dropdown-item:active,
+.gbyte-header__menu .dropdown-item:focus-visible {
+  outline: 2px solid #00040c;
+  outline-offset: -2px;
+  color: #4db04b;
 }
 
 /* Corrected styles for the dropdown item with an icon */
@@ -525,6 +568,17 @@ section[id] {
 
 .navbar-toggler:focus {
   box-shadow: none;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.gbyte-header.gbyte-header--scrolled .navbar-toggler:focus,
+.gbyte-header.gbyte-header--scrolled .navbar-toggler:focus-visible {
+  outline-color: #00040c;
 }
 
 .navbar-toggler .navbar-toggler-icon {
@@ -1061,6 +1115,10 @@ section[id] {
   opacity: 1;
   transform: translateX(0.125rem);
 }
+.gbyte-btn:focus-visible {
+  outline: 2px solid #00040c;
+  outline-offset: 2px;
+}
 
 .gbyte-btn.bg-green,
 .gbyte-btn.bg-green:focus-visible,
@@ -1188,6 +1246,10 @@ section[id] {
   background-color: #ffffff;
   color: #00040c;
 }
+.gbyte-btn--hero:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
 
 @media (min-width: 1921px) {
   .gbyte-btn {
@@ -1239,6 +1301,8 @@ section[id] {
   cursor: pointer;
   transition: all 0.3s ease;
   padding: 0.625rem;
+  background: none;
+  border: none;
 }
 .gbyte-carousel__nav .gbyte-carousel__nav-btn::after {
   display: "none";
@@ -1253,6 +1317,10 @@ section[id] {
 }
 .gbyte-carousel__nav .gbyte-carousel__nav-btn:hover {
   background-color: #fff;
+}
+.gbyte-carousel__nav .gbyte-carousel__nav-btn:focus-visible {
+  outline: 2px solid #00040c;
+  outline-offset: 2px;
 }
 .gbyte-carousel__nav .gbyte-carousel__nav-btn--next svg {
   transform: rotate(180deg);
@@ -1305,6 +1373,10 @@ section[id] {
 }
 .gbyte-carousel__footer .gbyte-btn:hover svg .b {
   fill: #fff;
+}
+.gbyte-carousel__footer .gbyte-btn:focus-visible {
+  outline: 2px solid #00040c;
+  outline-offset: 2px;
 }
 
 @media (max-width: 992px) {
@@ -1361,14 +1433,14 @@ section[id] {
 }
 .gbyte-boxes .gbyte-boxes__box--left .gbyte-boxes__title,
 .gbyte-boxes .gbyte-boxes__box--left .gbyte-boxes__text {
-  color: #00040c;
+  color: inherit;
 }
 .gbyte-boxes .gbyte-boxes__box--right {
   border-radius: 0 0.75rem 0.75rem 0;
 }
 .gbyte-boxes .gbyte-boxes__box--right .gbyte-boxes__title,
 .gbyte-boxes .gbyte-boxes__box--right .gbyte-boxes__text {
-  color: #00040c;
+  color: inherit;
 }
 
 @media (max-width: 992px) {
@@ -1421,6 +1493,10 @@ section[id] {
   width: 100%;
   max-width: 12.5rem;
 }
+.gbyte-footer__container .gbyte-footer__brand a:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
 .gbyte-footer__container .gbyte-footer__socials {
   margin-bottom: 5.625rem;
   display: flex;
@@ -1433,6 +1509,10 @@ section[id] {
   min-width: 21px;
   max-width: 21px;
 }
+.gbyte-footer__container .gbyte-footer__socials a:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
 .gbyte-footer__container .gbyte-footer__address a {
   color: #fff;
 }
@@ -1440,6 +1520,10 @@ section[id] {
   margin-bottom: 1rem;
   font-size: 1rem;
   line-height: 1.5rem;
+}
+.gbyte-footer__container .gbyte-footer__address a:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
 }
 .gbyte-footer__container .gbyte-footer__menu h2 {
   font-size: 2.25rem;
@@ -1471,6 +1555,10 @@ section[id] {
 .gbyte-footer__container .gbyte-footer__menu ul li a:hover {
   text-decoration: underline;
 }
+.gbyte-footer__container .gbyte-footer__menu ul li a:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
 
 .gbyte-footer__bottom {
   padding: 1.0625rem 0;
@@ -1500,6 +1588,10 @@ section[id] {
 }
 .gbyte-footer__bottom .gbyte-footer__bottom-item a:hover {
   text-decoration: underline;
+}
+.gbyte-footer__bottom .gbyte-footer__bottom-item a:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
 }
 
 @media (max-width: 992px) {
@@ -1634,6 +1726,18 @@ section[id] {
   line-height: 1.625rem;
   margin-bottom: 1.625rem;
   color: #4d4d4d;
+}
+.gbyte-text .gbyte-container .gbyte-text__wrapper .gbyte-text__content a {
+  color: #1f6f3f;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+.gbyte-text .gbyte-container .gbyte-text__wrapper .gbyte-text__content a:hover {
+  text-decoration: none;
+}
+.gbyte-text .gbyte-container .gbyte-text__wrapper .gbyte-text__content a:focus-visible {
+  outline: 2px solid #00040c;
+  outline-offset: 2px;
 }
 
 @media (max-width: 992px) {
@@ -1780,6 +1884,18 @@ section[id] {
   color: #00040c;
   margin-left: auto;
   margin-right: auto;
+}
+.gbyte-headline__text a {
+  color: #1f6f3f;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+.gbyte-headline__text a:hover {
+  text-decoration: none;
+}
+.gbyte-headline__text a:focus-visible {
+  outline: 2px solid #00040c;
+  outline-offset: 2px;
 }
 
 @media (max-width: 992px) {
@@ -2126,6 +2242,18 @@ section[id] {
   margin-bottom: 4.0625rem;
   color: #00040c;
 }
+.gbyte-sticky-content .gbyte-container .gbyte-sticky-content__right .gbyte-sticky-content__item .gbyte-sticky-content__item-text a {
+  color: #1f6f3f;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+.gbyte-sticky-content .gbyte-container .gbyte-sticky-content__right .gbyte-sticky-content__item .gbyte-sticky-content__item-text a:hover {
+  text-decoration: none;
+}
+.gbyte-sticky-content .gbyte-container .gbyte-sticky-content__right .gbyte-sticky-content__item .gbyte-sticky-content__item-text a:focus-visible {
+  outline: 2px solid #00040c;
+  outline-offset: 2px;
+}
 .gbyte-sticky-content .gbyte-container .gbyte-sticky-content__right .gbyte-sticky-content__item .gbyte-sticky-content__divider {
   height: 0.0625rem;
   background-color: #c5c5c5;
@@ -2357,6 +2485,18 @@ section[id] {
   max-width: 85.375rem;
   margin: auto 0 0 0;
 }
+.gbyte-contact-info a {
+  color: #00040c;
+  text-decoration: none;
+  font-style: normal;
+}
+.gbyte-contact-info a:hover {
+  text-decoration: underline;
+}
+.gbyte-contact-info a:focus-visible {
+  outline: 2px solid #00040c;
+  outline-offset: 2px;
+}
 .gbyte-contact-info__box {
   display: flex;
   flex-direction: column;
@@ -2391,14 +2531,6 @@ section[id] {
   font-size: 1.125rem;
   line-height: 1.625rem;
   text-align: left;
-}
-.gbyte-contact-info__item a {
-  color: #00040c;
-  text-decoration: none;
-  font-style: normal;
-}
-.gbyte-contact-info__item a:hover {
-  text-decoration: underline;
 }
 .gbyte-contact-info__box-title {
   font-size: 1.5rem;
@@ -2516,6 +2648,10 @@ section[id] {
   outline: none;
   border-color: #1f6f3f;
 }
+.gbyte-form .gbyte-form-control:focus-visible {
+  outline: 2px solid #00040c;
+  outline-offset: 2px;
+}
 .gbyte-form .gbyte-form-group:has(.wpcf7-not-valid-tip):not(:has(textarea)) .gbyte-form-label:not(.gbyte-form-checkbox-label) {
   top: 50%;
   transform: translate(0, calc(-50% - var(--error-span-height, 0px) / 2));
@@ -2571,6 +2707,10 @@ section[id] {
 .gbyte-form .gbyte-file-upload-wrapper .gbyte-file-upload-label img {
   max-width: 1.25rem;
 }
+.gbyte-form .gbyte-file-upload-wrapper:focus-within .gbyte-file-upload-label {
+  outline: 2px solid #00040c;
+  outline-offset: 2px;
+}
 .gbyte-form .gbyte-file-upload-wrapper .gbyte-file-upload-text {
   color: #4d4d4d;
   font-size: 1rem;
@@ -2615,6 +2755,10 @@ section[id] {
   margin-right: 0.9375rem;
   accent-color: #1f6f3f;
 }
+.gbyte-form .gbyte-form-group-checkbox .gbyte-form-checkbox:focus-visible {
+  outline: 2px solid #00040c;
+  outline-offset: 2px;
+}
 .gbyte-form .gbyte-form-group-checkbox .gbyte-form-checkbox-label {
   font-size: 0.875rem;
   line-height: 1.375rem;
@@ -2626,6 +2770,10 @@ section[id] {
 }
 .gbyte-form .gbyte-form-group-checkbox .gbyte-form-checkbox-label a:hover {
   text-decoration: none;
+}
+.gbyte-form .gbyte-form-group-checkbox .gbyte-form-checkbox-label a:focus-visible {
+  outline: 2px solid #00040c;
+  outline-offset: 2px;
 }
 .gbyte-form .gbyte-btn {
   width: 100%;
@@ -2697,7 +2845,14 @@ section[id] {
   font-size: 1.5rem;
   line-height: 1.75rem;
   text-align: left;
-  margin-bottom: 3.4375rem;
+  margin-bottom: 1.5625rem;
+}
+.gbyte-job-offers__card .gbyte-job-offers__card-text {
+  color: #00040c;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  text-align: left;
+  margin-bottom: 1.5625rem;
 }
 .gbyte-job-offers__title {
   font-size: 3.25rem;
@@ -2727,6 +2882,11 @@ section[id] {
 }
 .gbyte-job-offers__item:hover .gbyte-job-offers__item-arrow .arrow .b {
   opacity: 1;
+}
+.gbyte-job-offers__item:focus-visible {
+  outline: 2px solid #00040c;
+  outline-offset: -2px;
+  background-color: #f1f0f5;
 }
 .gbyte-job-offers__item-title {
   font-size: 1.5rem;

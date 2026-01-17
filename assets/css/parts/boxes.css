@@ -270,14 +270,14 @@ section[id] {
 }
 .gbyte-boxes .gbyte-boxes__box--left .gbyte-boxes__title,
 .gbyte-boxes .gbyte-boxes__box--left .gbyte-boxes__text {
-  color: #00040c;
+  color: inherit;
 }
 .gbyte-boxes .gbyte-boxes__box--right {
   border-radius: 0 0.75rem 0.75rem 0;
 }
 .gbyte-boxes .gbyte-boxes__box--right .gbyte-boxes__title,
 .gbyte-boxes .gbyte-boxes__box--right .gbyte-boxes__text {
-  color: #00040c;
+  color: inherit;
 }
 
 @media (max-width: 992px) {

@@ -49,6 +49,19 @@
                     line-height: to-rem(26px);
                     margin-bottom: to-rem(65px);
                     color: $black-color;
+
+                    a {
+                        color: $primary-color;
+                        text-decoration: underline;
+                        transition: color 0.3s ease;
+                        &:hover {
+                            text-decoration: none;
+                        }
+                        &:focus-visible {
+                            outline: 2px solid $black-color;
+                            outline-offset: 2px;
+                        }
+                    }
                 }
                 .gbyte-sticky-content__divider {
                     height: to-rem(1px);

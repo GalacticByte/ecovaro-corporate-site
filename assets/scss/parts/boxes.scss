@@ -41,7 +41,7 @@
             border-radius: to-rem(12px) 0 0 to-rem(12px);
             .gbyte-boxes__title,
             .gbyte-boxes__text {
-                color: $black-color;
+                color: inherit;
             }
         }
 
@@ -49,7 +49,7 @@
             border-radius: 0 to-rem(12px) to-rem(12px) 0;
             .gbyte-boxes__title,
             .gbyte-boxes__text {
-                color: $black-color;
+                color: inherit;
             }
         }
     }

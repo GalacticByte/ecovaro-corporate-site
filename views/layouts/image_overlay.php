@@ -21,17 +21,19 @@ if ( $padding_top ) {
 if ( $padding_bottom ) {
     $section_classes .= ' container-padding-bottom';
 }
+
+$title_id = 'overlay-title-' . ( $section_id ? $section_id : uniqid() );
 ?>
 
-<section class="<?php echo esc_attr( $section_classes ); ?>"<?php echo $section_id ? ' id="' . esc_attr( $section_id ) . '"' : ''; ?>>
+<section class="<?php echo esc_attr( $section_classes ); ?>"<?php echo $section_id ? ' id="' . esc_attr( $section_id ) . '"' : ''; ?><?php echo $title ? ' aria-labelledby="' . esc_attr( $title_id ) . '"' : ''; ?>>
     <div class="gbyte-image-overlay__container" style="background-image: url('<?php echo esc_url( $bg_image_url ); ?>');">
         <div class="gbyte-image-overlay__content">
             <?php if ( $icon_id ) : ?>
-                <?php echo wp_get_attachment_image( $icon_id, 'full', false, array( 'class' => 'gbyte-image-overlay__icon' ) ); ?>
+                <?php echo wp_get_attachment_image( $icon_id, 'full', false, array( 'class' => 'gbyte-image-overlay__icon', 'alt' => '', 'aria-hidden' => 'true' ) ); ?>
             <?php endif; ?>
 
             <?php if ( $title ) : ?>
-                <h3 class="gbyte-image-overlay__title"><?php echo cf_text( $title ); ?></h3>
+                <h3 id="<?php echo esc_attr( $title_id ); ?>" class="gbyte-image-overlay__title"><?php echo cf_text( $title ); ?></h3>
             <?php endif; ?>
             <?php if ( $content ) : ?>
                 <p class="gbyte-image-overlay__text"><?php echo cf_the_content_br( $content ); ?></p>

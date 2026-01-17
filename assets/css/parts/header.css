@@ -234,6 +234,23 @@ section[id] {
 /* ==========================================================================
    1. Header
    ========================================================================== */
+.skip-link {
+  position: absolute;
+  top: -9999px;
+  left: 0;
+  background-color: #fff;
+  color: #00040c;
+  padding: 0.9375rem 1.25rem;
+  z-index: 99999;
+  text-decoration: none;
+  font-weight: bold;
+  border: 2px solid #1f6f3f;
+}
+.skip-link:focus {
+  top: 0;
+  left: 0;
+}
+
 .gbyte-header {
   position: fixed;
   top: 0;
@@ -282,6 +299,11 @@ section[id] {
   padding: 0;
   margin-right: 0;
 }
+.gbyte-header__brand.navbar-brand a:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
 
 .gbyte-header__brand .gbyte-header__logo {
   width: 100%;
@@ -304,6 +326,11 @@ section[id] {
 
 .gbyte-header--scrolled .gbyte-header__logo--color {
   opacity: 1;
+}
+
+.navbar-toggler:focus-visible {
+  outline: 2px solid #00040c;
+  outline-offset: 2px;
 }
 
 /*# sourceMappingURL=header.css.map */

@@ -255,6 +255,10 @@ section[id] {
   width: 100%;
   max-width: 12.5rem;
 }
+.gbyte-footer__container .gbyte-footer__brand a:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
 .gbyte-footer__container .gbyte-footer__socials {
   margin-bottom: 5.625rem;
   display: flex;
@@ -267,6 +271,10 @@ section[id] {
   min-width: 21px;
   max-width: 21px;
 }
+.gbyte-footer__container .gbyte-footer__socials a:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
 .gbyte-footer__container .gbyte-footer__address a {
   color: #fff;
 }
@@ -274,6 +282,10 @@ section[id] {
   margin-bottom: 1rem;
   font-size: 1rem;
   line-height: 1.5rem;
+}
+.gbyte-footer__container .gbyte-footer__address a:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
 }
 .gbyte-footer__container .gbyte-footer__menu h2 {
   font-size: 2.25rem;
@@ -305,6 +317,10 @@ section[id] {
 .gbyte-footer__container .gbyte-footer__menu ul li a:hover {
   text-decoration: underline;
 }
+.gbyte-footer__container .gbyte-footer__menu ul li a:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
 
 .gbyte-footer__bottom {
   padding: 1.0625rem 0;
@@ -334,6 +350,10 @@ section[id] {
 }
 .gbyte-footer__bottom .gbyte-footer__bottom-item a:hover {
   text-decoration: underline;
+}
+.gbyte-footer__bottom .gbyte-footer__bottom-item a:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
 }
 
 @media (max-width: 992px) {

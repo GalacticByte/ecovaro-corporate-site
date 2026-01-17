@@ -43,6 +43,11 @@
             transform: translateX(to-rem(2px));
         }
     }
+
+    &:focus-visible {
+        outline: 2px solid $black-color;
+        outline-offset: 2px;
+    }
 }
 
 .gbyte-btn.bg-green,
@@ -147,6 +152,11 @@
     &:hover {
         background-color: #ffffff;
         color: $black-color;
+    }
+
+    &:focus-visible {
+        outline: 2px solid $white-color;
+        outline-offset: 2px;
     }
 }
 

@@ -52,12 +52,14 @@ if ( 'headline' === $variant ) :
 
     // Determine icon color based on button background
     $icon_color = ( 'bg-white' === $btn_style ) ? '#015AAB' : '#ffffff';
+
+    $title_id = 'text-title-' . ( $section_id ? $section_id : uniqid() );
     ?>
-    <section class="gbyte-text<?php echo esc_attr( $section_classes ); ?>"<?php echo $section_id ? ' id="' . esc_attr( $section_id ) . '"' : ''; ?>>
+    <section class="gbyte-text<?php echo esc_attr( $section_classes ); ?>"<?php echo $section_id ? ' id="' . esc_attr( $section_id ) . '"' : ''; ?><?php echo $title ? ' aria-labelledby="' . esc_attr( $title_id ) . '"' : ''; ?>>
         <div class="gbyte-container">
             <div class="gbyte-text__wrapper">
                 <?php if ( $title ) : ?>
-                    <h2 class="gbyte-text__title"><?php echo cf_text( $title ); ?></h2>
+                    <h2 id="<?php echo esc_attr( $title_id ); ?>" class="gbyte-text__title"><?php echo cf_text( $title ); ?></h2>
                 <?php endif; ?>
 
                 <?php if ( $content ) : ?>
@@ -67,9 +69,13 @@ if ( 'headline' === $variant ) :
                 <?php endif; ?>
 
                 <?php if ( $show_button && $btn_text && $btn_url ) : ?>
-                    <a href="<?php echo esc_url( $btn_url ); ?>" target="<?php echo esc_attr( $btn_target ); ?>" class="btn gbyte-btn <?php echo esc_attr( $btn_style ); ?>">
+                    <?php
+                    $rel_attr = ( '_blank' === $btn_target ) ? ' rel="noopener noreferrer"' : '';
+                    $aria_label = ( '_blank' === $btn_target ) ? ' aria-label="' . esc_attr( $btn_text . ' ' . __( '(otwiera się w nowym oknie)', 'ecovaro' ) ) . '"' : '';
+                    ?>
+                    <a href="<?php echo esc_url( $btn_url ); ?>" target="<?php echo esc_attr( $btn_target ); ?>" class="btn gbyte-btn <?php echo esc_attr( $btn_style ); ?>"<?php echo $rel_attr . $aria_label; ?>>
                         <span><?php echo esc_html( $btn_text ); ?></span>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="arrow" width="16" height="16" viewBox="0 0 16 16">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="arrow" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
                             <defs><style>.a{fill:none;}.b{fill:<?php echo esc_attr( $icon_color ); ?>;fill-rule:evenodd;opacity:0.54;}</style></defs>
                             <rect class="a" width="16" height="16"/>
                             <path class="b" d="M12,5.25H2.85l4.2-4.2L6,0,0,6l6,6,1.05-1.05-4.2-4.2H12V5.25Z" transform="translate(14.485 14) rotate(180)"/>

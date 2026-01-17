@@ -269,6 +269,8 @@ section[id] {
   cursor: pointer;
   transition: all 0.3s ease;
   padding: 0.625rem;
+  background: none;
+  border: none;
 }
 .gbyte-carousel__nav .gbyte-carousel__nav-btn::after {
   display: "none";
@@ -283,6 +285,10 @@ section[id] {
 }
 .gbyte-carousel__nav .gbyte-carousel__nav-btn:hover {
   background-color: #fff;
+}
+.gbyte-carousel__nav .gbyte-carousel__nav-btn:focus-visible {
+  outline: 2px solid #00040c;
+  outline-offset: 2px;
 }
 .gbyte-carousel__nav .gbyte-carousel__nav-btn--next svg {
   transform: rotate(180deg);
@@ -335,6 +341,10 @@ section[id] {
 }
 .gbyte-carousel__footer .gbyte-btn:hover svg .b {
   fill: #fff;
+}
+.gbyte-carousel__footer .gbyte-btn:focus-visible {
+  outline: 2px solid #00040c;
+  outline-offset: 2px;
 }
 
 @media (max-width: 992px) {

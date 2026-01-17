@@ -241,6 +241,18 @@ section[id] {
   max-width: 85.375rem;
   margin: auto 0 0 0;
 }
+.gbyte-contact-info a {
+  color: #00040c;
+  text-decoration: none;
+  font-style: normal;
+}
+.gbyte-contact-info a:hover {
+  text-decoration: underline;
+}
+.gbyte-contact-info a:focus-visible {
+  outline: 2px solid #00040c;
+  outline-offset: 2px;
+}
 .gbyte-contact-info__box {
   display: flex;
   flex-direction: column;
@@ -275,14 +287,6 @@ section[id] {
   font-size: 1.125rem;
   line-height: 1.625rem;
   text-align: left;
-}
-.gbyte-contact-info__item a {
-  color: #00040c;
-  text-decoration: none;
-  font-style: normal;
-}
-.gbyte-contact-info__item a:hover {
-  text-decoration: underline;
 }
 .gbyte-contact-info__box-title {
   font-size: 1.5rem;
