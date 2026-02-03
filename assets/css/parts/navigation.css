@@ -288,6 +288,9 @@ section[id] {
   margin-left: 0.5rem;
   vertical-align: -0.1em;
   border: none;
+  background-color: #1f6f3f;
+  -webkit-mask-image: url("../images/strona-glowna/arrow-down-01.svg");
+  mask-image: url("../images/strona-glowna/arrow-down-01.svg");
   /* Resets the default Bootstrap arrow */
   transition: opacity 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
   -webkit-mask-size: contain;
@@ -296,13 +299,6 @@ section[id] {
   mask-repeat: no-repeat;
   -webkit-mask-position: center;
   mask-position: center;
-}
-
-/* Default arrow appearance (blue) */
-.gbyte-header__menu .dropdown-toggle::after {
-  background-color: #1f6f3f;
-  -webkit-mask-image: url("../images/strona-glowna/arrow-down-01.svg");
-  mask-image: url("../images/strona-glowna/arrow-down-01.svg");
 }
 
 .gbyte-header.gbyte-header--scrolled .gbyte-header__menu .nav-link {

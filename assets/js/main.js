@@ -51,15 +51,15 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // Update hero height on resize
-        $(window).on("resize", function () {
+        $(globalThis).on("resize", function () {
             heroHeight = $heroSection.height();
         });
 
         // Listen to scroll events
-        $(window).on("scroll", function () {
+        $(globalThis).on("scroll", function () {
             lastScrollY = $(this).scrollTop();
             if (!ticking) {
-                window.requestAnimationFrame(updateHeader);
+                globalThis.requestAnimationFrame(updateHeader);
                 ticking = true;
             }
         });
@@ -78,9 +78,9 @@ document.addEventListener("DOMContentLoaded", function () {
             const offsetAfterRem = rootStyles.getPropertyValue("--swiper-offset-after").trim() || "1.875rem";
 
             // Transform to pixels
-            const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
-            const offsetBeforePx = parseFloat(offsetBeforeRem) * rootFontSize;
-            const offsetAfterPx = parseFloat(offsetAfterRem) * rootFontSize;
+            const rootFontSize = Number.parseFloat(getComputedStyle(document.documentElement).fontSize);
+            const offsetBeforePx = Number.parseFloat(offsetBeforeRem) * rootFontSize;
+            const offsetAfterPx = Number.parseFloat(offsetAfterRem) * rootFontSize;
 
             const swiper = new Swiper(".gbyte-carousel__slider", {
                 // Optional parameters
@@ -130,8 +130,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         function checkVisibility() {
-            const windowTop = $(window).scrollTop();
-            const windowHeight = $(window).height();
+            const windowTop = $(globalThis).scrollTop();
+            const windowHeight = $(globalThis).height();
             const windowBottom = windowTop + windowHeight;
 
             $animatedElements.each(function () {
@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // Run the check on page load and on every scroll
-        $(window).on("scroll resize", checkVisibility);
+        $(globalThis).on("scroll resize", checkVisibility);
         checkVisibility(); // Check immediately on load
     }
     setupScrollAnimations();
@@ -223,7 +223,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         {
                             scrollTop: $target.offset().top,
                         },
-                        800
+                        800,
                     ); // Animation duration in ms
                 }
             });
@@ -244,7 +244,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
     // Run on page load and on window resize
-    $(window).on("load resize", setHeaderHeightProperty);
+    $(globalThis).on("load resize", setHeaderHeightProperty);
     setHeaderHeightProperty(); // Run immediately
 
     /**
@@ -272,7 +272,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
             },
             // Threshold 0 means the event fires as soon as the first pixel of the element appears in view
-            { root: null, threshold: [0, 0.1] }
+            { root: null, threshold: [0, 0.1] },
         );
 
         observer.observe($contentToObserve[0]); // Always observe content for mobile logic
@@ -293,9 +293,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 const firstErrorSpan = form.querySelector(".wpcf7-not-valid-tip");
                 if (firstErrorSpan) {
                     // Get styles to access margins
-                    const style = window.getComputedStyle(firstErrorSpan);
-                    const marginTop = parseFloat(style.marginTop);
-                    const marginBottom = parseFloat(style.marginBottom);
+                    const style = globalThis.getComputedStyle(firstErrorSpan);
+                    const marginTop = Number.parseFloat(style.marginTop);
+                    const marginBottom = Number.parseFloat(style.marginBottom);
                     // Calculate full height: offsetHeight (content + padding + border) + margins
                     const totalHeight = firstErrorSpan.offsetHeight + marginTop + marginBottom;
                     root.style.setProperty("--error-span-height", `${totalHeight}px`);

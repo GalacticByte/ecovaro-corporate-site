@@ -33,7 +33,7 @@ if ( ! function_exists( 'get_gbyte_button' ) ) {
 		$arrow_url  = get_template_directory_uri() . '/assets/images/strona-glowna/arrow-btn-01.svg';
 		$arrow_html = sprintf( ' <img class="arrow" src="%s" alt="">', esc_url( $arrow_url ) );
 
-		$button_html = sprintf(
+		return sprintf(
 			'<a href="%s" class="btn gbyte-btn %s">%s%s</a>',
 			esc_url( $args['url'] ),
 			esc_attr( $args['classes'] ),
@@ -41,6 +41,5 @@ if ( ! function_exists( 'get_gbyte_button' ) ) {
 			$arrow_html
 		);
 
-		return $button_html;
 	}
 }
