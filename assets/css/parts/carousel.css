@@ -4,14 +4,11 @@
 :root {
   --swiper-offset-before: 1.875rem;
   --swiper-offset-after: 1.875rem;
-}
-
-html {
   font-size: 16px;
 }
 
 @media (min-width: 992px) {
-  html {
+  :root {
     font-size: 1vw;
   }
 }
