@@ -31,19 +31,15 @@ $bp-xxl: 1920px;
 :root {
     --swiper-offset-before: #{to-rem(30px)};
     --swiper-offset-after: #{to-rem(30px)};
+    font-size: 16px;
 }
 
 // 3. Fluid typography and layout
 
-// Default, fixed font-size for mobile devices (below 992px).
-html {
-    font-size: 16px;
-}
-
 // Above 992px, the base font-size is set to 1vw.
 // This allows the entire layout (based on rem units) to scale proportionally to the window width.
 @media (min-width: $bp-lg) {
-    html {
+    :root {
         font-size: 1vw;
     }
 }
